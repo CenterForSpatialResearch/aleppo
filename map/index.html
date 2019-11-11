@@ -1,0 +1,595 @@
+<!-- Conflict Urbanism: Aleppo
+     Center for Spatial Research
+     Madeeha Merchant (mym2107@columbia.edu)
+================================================================= -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title> Conflict Urbanism: Aleppo</title>
+
+<!-- Bootstrap core Headers
+================================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Mapbox Setup
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' /> -->
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet' />
+
+    <!-- Leaflet Setup -->
+    <link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css">
+
+    <link href='css/cluster.css' rel='stylesheet' />
+    <link href='css/cluster.default.css' rel='stylesheet' />
+
+    <!-- webfonts -->
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/c28915cb-7a1f-477c-9084-e9e755ede452.css"/>
+
+    <!-- main style -->
+    <link href='css/conflict_main_2.css' rel='stylesheet' />
+
+</head>
+<body>
+
+    <div class="container main">
+
+        <div class="row top-row">
+            <div class="col-sm-3 col-first">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="../index.html" target="_blank"><h5>Conflict Urbanism</h5></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-first">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h5>&nbsp&nbsp&nbsp&nbsp&nbspAleppo</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 right-col">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <a href="About_Platform.html" target="popup" onclick="window.open('About_Platform.html', 'About', 'width=400,height=800'); return false;"> <h4> <strong> About </strong> </h4></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row very-light-grey">
+            <div class="col-sm-3 left-col">
+                <div class="row">
+                    <div class="first-column neighborhoods">
+                        <!--<h5>Neighborhoods </h5>
+                        <a href="About_N.html" target="popup" onclick="window.open('About_N.html', 'About', 'width=400,height=400'); return false;"> <h4> <strong> Neighborhoods </strong> </h4></a></h5>-->
+
+                        <!-- Option 1
+                        <h5>Neighborhoods <a href="About_N.html" target="popup" onclick="window.open('About_N.html', 'About', 'width=400,height=400'); return false;">i</a></h5>-->
+
+                        <!-- Option 2 -->
+                        <h5>Neighborhoods <a href="About_N.html" target="popup" onclick="window.open('About_N.html', 'About', 'width=400,height=400'); return false;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspi</a></h5>
+
+                        <div class="search-box"> <input id="q" placeholder="Enter Neighborhood" /> </div>
+                        <div class="darker-grey">
+                            <div class="col-sm-12 data-rows" id='marker-list'> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 right-col">
+                <div class="row">
+                    <div class="third-column">
+                            <div class="col-sm-12 t-title">
+                                <h5>Visualize</h5>
+                            </div>
+                            <p id="layer-switcher"> </p>
+                    </div>
+                    <div class="second-column">
+                        <div class="light-grey">
+                            <div class="col-sm-6">
+                                <h5>Description</h5>
+                            </div>
+                        </div>
+                        <div class="dark-grey" class="mylist">
+                            <div class="col-sm-12">
+                                <p class="description"> Select Layer for more information
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-8 mid-column">
+                <div class="row">
+                    <div class="col-sm-12 upper-col" id="map">
+                    <div id='zoom-level'> <small>&nbsp&nbspZoom Level: 13</small></div>
+                        <p>&nbsp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row red bottom-line">
+            <div class="col-sm-12">
+                <h5> <center> Center for Spatial Research, Columbia University</center></h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <!-- Mapbox Setup -->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'></script>
+
+    <!-- Firebase and Leaflet Setup -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
+
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+
+    <script src="data/hrw.js"></script>
+    <script src="data/unosat1.js"></script>
+
+    <script type="text/javascript">
+
+	    L.mapbox.accessToken = 'pk.eyJ1IjoiYzRzciIsImEiOiJjaWdhN2ptaHkwZmxidWxrcnBscjM5N2trIn0.Rcac0rnnmYf2eXZOL0tT5A';
+        L.mapbox.accessToken = 'pk.eyJ1IjoidmlvbGV0d2hpdG5leSIsImEiOiJjaWs2NXJyaW4wMHVidjRrdDVueGQ2bGk4In0.5BgQAwPEg4AXg0CpLxq7Yw';
+
+
+        /* Initialize Map Location and Zoom Point */
+	    var lat = 36.198;
+	    var lng = 37.1518;
+	    var zoom = 13;
+
+        /* Initialize Map Layers */
+	    var markerPopup = false,
+	        allLayers = [];
+	    allLayers['base-layer'] = [];
+	    allLayers['overlay'] = [];
+
+        /* Initialize Map Display. Set Zoom Control to False as custom zoom system is used */
+	    var map = L.map('map', {
+	        zoomControl: false
+	    }).setView([lat, lng], zoom);
+
+        /* Get Zoom Level to Display on Map, Left Corner */
+        map.on('zoomend', function(){
+            document.getElementById('zoom-level').innerHTML = 'Zoom Level: ' + map.getZoom();
+        });
+
+	    /* Custom Zoom + Home Button Code
+	    	================================================== */
+
+	    L.Control.zoomHome = L.Control.extend({
+	        options: {
+	            position: 'topright',
+	            zoomInText: '+',
+	            zoomInTitle: 'Zoom in',
+	            zoomOutText: '-',
+	            zoomOutTitle: 'Zoom out',
+	            zoomHomeText: '<i class="fa fa-home" style="line-height:2;"></i>',
+	            zoomHomeTitle: 'Zoom home'
+	        },
+	        onAdd: function(map) {
+	            var controlName = 'gin-control-zoom',
+	                container = L.DomUtil.create('div', controlName + ' leaflet-bar'),
+	                options = this.options;
+	            this._zoomInButton = this._createButton(options.zoomInText, options.zoomInTitle,
+	                controlName + '-in', container, this._zoomIn);
+	            this._zoomHomeButton = this._createButton(options.zoomHomeText, options.zoomHomeTitle,
+	                controlName + '-home', container, this._zoomHome);
+	            this._zoomOutButton = this._createButton(options.zoomOutText, options.zoomOutTitle,
+	                controlName + '-out', container, this._zoomOut);
+	            this._updateDisabled();
+	            map.on('zoomend zoomlevelschange', this._updateDisabled, this);
+	            return container;
+	        },
+	        onRemove: function(map) {
+	            map.off('zoomend zoomlevelschange', this._updateDisabled, this);
+	        },
+	        _zoomIn: function(e) {
+	            this._map.zoomIn(e.shiftKey ? 3 : 1);
+	        },
+	        _zoomOut: function(e) {
+	            this._map.zoomOut(e.shiftKey ? 3 : 1);
+	        },
+	        _zoomHome: function(e) {
+	            map.setView([lat, lng], zoom);
+	        },
+	        _createButton: function(html, title, className, container, fn) {
+	            var link = L.DomUtil.create('a', className, container);
+	            link.innerHTML = html;
+	            link.href = '#';
+	            link.title = title;
+	            L.DomEvent.on(link, 'mousedown dblclick', L.DomEvent.stopPropagation)
+	                .on(link, 'click', L.DomEvent.stop)
+	                .on(link, 'click', fn, this)
+	                .on(link, 'click', this._refocusOnMap, this);
+	            return link;
+	        },
+	        _updateDisabled: function() {
+	            var map = this._map,
+	                className = 'leaflet-disabled';
+	            L.DomUtil.removeClass(this._zoomInButton, className);
+	            L.DomUtil.removeClass(this._zoomOutButton, className);
+	            if (map._zoom === map.getMinZoom()) {
+	                L.DomUtil.addClass(this._zoomOutButton, className);
+	            }
+	            if (map._zoom === map.getMaxZoom()) {
+	                L.DomUtil.addClass(this._zoomInButton, className);
+	            }
+	        }
+	    });
+
+	    // add the new control to the map
+	    var zoomHome = new L.Control.zoomHome();
+	    zoomHome.addTo(map);
+	    L.control.fullscreen().addTo(map);
+
+	    /* Add Markers and Marker-Feature Layer
+		================================================== */
+
+	    var markerList = $("#marker-list");
+	    var rows = [];
+        var range = document.getElementById('range');
+        var culturalLayer = L.mapbox.featureLayer();
+        var unLayer = L.mapbox.featureLayer();
+        var culturalLayer2 = new L.MarkerClusterGroup({
+            iconCreateFunction: function(cluster) {
+              return new L.DivIcon({
+                iconSize: [40, 20],
+                html: '<div style="text-align:center;background:grey">'+
+                '<div style="color:white;background:353535">' + cluster.getChildCount() + '</div></div>'
+              });
+            }
+          });
+
+        var culturalLayer3 = new L.MarkerClusterGroup({
+            iconCreateFunction: function(cluster) {
+              return new L.DivIcon({
+                iconSize: [40, 40],
+                className: 'div-icon',
+                html: '<div style="text-align:center;background:grey">'+
+                '<div style="color:#000;background:grey">' + cluster.getChildCount() + '</div></div>'
+              });
+            }
+          });
+/*
+
+        /* Layer : NEIGHBORHOOD : featureLayer8
+        ================================================== */
+
+	    var featureLayer = L.mapbox.featureLayer('sidl.mhk5gaj2')
+	        .on('click', function(e) {
+	            if (!markerPopup) {
+	                var content = '<b>' + e.layer.toGeoJSON().properties.NAME + '<br \/>' +
+	                    '' + e.layer.toGeoJSON().properties.NAME_A + '<\/b>';
+	                L.popup({}).setLatLng(e.layer.getBounds().getCenter()).setContent(content).openOn(map);
+	            }
+	        })
+	        .on('ready', function(e) {
+	            this.eachLayer(function(layer) {
+
+	                var i = {
+	                    'name': layer.toGeoJSON().properties.NAME,
+	                    'description': layer.toGeoJSON().properties.description,
+	                    'photo': "http://placehold.it/150x140",
+	                    'graph': "graph2",
+	                    'layer': layer
+	                };
+	                rows.push(i);
+	            });
+
+                var neighborhoodData = {
+                        "Aleppo Citadel":[
+                            'X1'
+                        ],
+                        "Souq al-Madina":[
+                            'X2'
+                        ],
+                        "Sheikh Sa'eed":[
+                            'X3'
+                        ],
+                        "al-Muhafaza":[
+                            'Description'
+                        ]
+                };
+
+        /* Layer : Neighborhood Tabs Script
+        ================================================== */
+
+	            row = d3.select("#marker-list")
+                    .selectAll(".row")
+                    .data(rows).enter()
+                    .append("div")
+                    .attr("class", "row")
+                    .on('click', function(d) {
+
+                        var nd = neighborhoodData[d.name] ? neighborhoodData[d.name] : [];
+                        var desc = "<b>" + d.name + "<b><br>" + (typeof nd != 'undefined') ? nd[1] : '';
+                        d3.select('.description').html(desc);
+
+                        d3.select(".row-text").on('click', function() {
+                            d3.select('.description').html((typeof nd != 'undefined') ? nd[1] : '');
+                        });
+
+                        map.fitBounds(d.layer.getBounds());
+                        var content = '<b>' + d.layer.toGeoJSON().properties.NAME + '<br \/>' +
+                            '' + d.layer.toGeoJSON().properties.NAME_A + '<\/b>';
+                        L.popup({}).setLatLng(d.layer.getBounds().getCenter()).setContent(content).openOn(map);
+                    });
+
+	            row.append("div")
+	                .attr("class", "col-sm-12")
+	                .append("span")
+	                .text(function(d) {
+	                    return d.name;
+	                });
+
+	        }).addTo(map);
+
+            /* Search Function */
+            $( "#q" ).keyup(function( e ) {
+                var val = $(this).val();
+                row.each(function (d) {
+                    d3.select(this).style("display", function (d) {
+                        return (d.name).toLowerCase().indexOf(val) >= 0 ? 'block' : 'none';
+                    });
+                });
+            });
+
+        /* DATASETS:1 // Cultural, Unosat
+        ================================================== */
+
+        // var myIcons0 = {
+        //     Civic: L.icon({
+        //         iconUrl: 'icons/icon_civic.png',
+        //         iconRetinaUrl: 'icons/icon_civic_retina.png',
+        //         iconSize: [12, 12],
+        //         iconAnchor: [16, 16],
+        //         popupAnchor: [0, -15]
+        //     }),
+        //     Religious: L.icon({
+        //         iconUrl: 'icons/icon_religious.png',
+        //         iconRetinaUrl: 'icons/icon_religious_retina.png',
+        //         iconSize: [12, 12],
+        //         iconAnchor: [16, 16],
+        //         popupAnchor: [0, -15]
+        //     }),
+        //     Residential: L.icon({
+        //         iconUrl: 'icons/icon_residential.png',
+        //         iconRetinaUrl: 'icons/icon_residential_retina.png',
+        //         iconSize: [12, 12],
+        //         iconAnchor: [16, 16],
+        //         popupAnchor: [0, -15]
+        //     }),
+        //     Commercial: L.icon({
+        //         iconUrl: 'icons/icon_commercial.png',
+        //         iconRetinaUrl: 'icons/icon_commercial_retina.png',
+        //         iconSize: [12, 12],
+        //         iconAnchor: [16, 16],
+        //         popupAnchor: [0, -15]
+        //     }),
+        //     Eductional: L.icon({
+        //         iconUrl: 'icons/icon_educational.png',
+        //         iconRetinaUrl: 'icons/icon_educational_retina.png',
+        //         iconSize: [12, 12],
+        //         iconAnchor: [16, 16],
+        //         popupAnchor: [0, -15]
+        //     })
+        // };
+
+        var myIcons = {
+                '1': L.icon({
+                    iconUrl: 'icons/icon_red_sq.png',
+                    iconRetinaUrl: 'icons/icon_red_ret_sq.png',
+                    iconSize: [14, 14],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -15]
+                }),
+                '2': L.icon({
+                    iconUrl: 'icons/icon_orange_sq.png',
+                    iconRetinaUrl: 'icons/icon_orange_retina_sq.png',
+                    iconSize: [12, 12],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -15]
+                }),
+                '3': L.icon({
+                    iconUrl: 'icons/icon_yellow_sq.png',
+                    iconRetinaUrl: 'icons/icon_yellow_ret_sq.png',
+                    iconSize: [10, 10],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -15]
+                }),
+                '6': L.icon({
+                    iconUrl: 'icons/icon_yellow_sq.png',
+                    iconRetinaUrl: 'icons/icon_yellow_ret_sq.png',
+                    iconSize: [10, 10],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -15]
+                })
+            };
+
+        // var groups0 = {
+        //     Civic: makeGroup('#8DC63F'),
+        //     Religious: makeGroup('#006838'),
+        //     Residential: makeGroup('#3DB9CA'),
+        //     Commercial: makeGroup('#2B3990'),
+        //     Eductional: makeGroup('#92278F')
+        // };
+
+        var groups2 = {
+                SingleGroup: makeGroup('gray')
+        };
+
+
+        //  L.mapbox.featureLayer()
+        //     .loadURL('data/Cultural.geojson')
+        //     .on('ready', function(e) {
+
+        //     e.target.eachLayer(function(layer) {
+        //         layer.setIcon(myIcons0[layer.feature.properties.Typology]);
+        //         layer.bindPopup(layer.feature.properties.FACILITY_N);
+        //         groups0[layer.feature.properties.Typology].addLayer(layer);
+        //     });
+        // });
+
+
+        L.mapbox.featureLayer()
+            .loadURL('data/un2.geojson')
+            .on('ready', function(e) {
+                count=1;
+            e.target.eachLayer(function(layer) {
+                layer.setIcon(myIcons[layer.feature.properties.Main_Dam_3]);
+                layer.bindPopup(layer.feature.properties.SiteID + " in " + layer.feature.properties.Neighborho + "<br> " +
+                    layer.feature.properties.SensorID_4 + ": " + layer.feature.properties.SensorDa_3);
+                culturalLayer2.addLayer(layer);
+            });
+        });
+
+        // create a new MarkerClusterGroup that will show special-colored
+        function makeGroup(color) {
+          return new L.MarkerClusterGroup({
+            iconCreateFunction: function(cluster) {
+              return new L.DivIcon({
+                iconSize: [40, 20],
+                html: '<div style="text-align:center;background:' + hex2rgb(color) + '">'+
+                '<div style="color:#000;background:' + color + '">' + cluster.getChildCount() + '</div></div>'
+              });
+            }
+          }).addTo(culturalLayer);
+        }
+
+	    /* Leaflet Map Layers : Display
+		================================================== */
+
+	    var controls = L.control.layers({
+
+            // High Resolution Satellite Image 2016 : Aleppo c/o Airbus c4sr.336ay7an
+             'Satellite: 2016| <br> High Resolution Satellite Imagery of Aleppo, Digital Globe </br> <hr> Image Details: </br> Satellite: WorldView2 </br> Acquisition Date: 03-23-2016 </br> Resolution: 50cm </br> Off-Nadir: 9 </br>  Cloud Cover: 0% </br> Processed Imagery  <hr> Image Credits: </br> (c) 2016 DigitalGlobe, Inc': L.mapbox.tileLayer('mapbox.satellite,violetwhitney.8jms3v9x').addTo(map),
+            // High Resolution Satellite Image 2015 : Aleppo c/o Airbus c4sr.336ay7an
+            'Satellite: 2015| <br> High Resolution Satellite Imagery of Aleppo, Airbus </br> <hr> Image Details: </br> Satellite: Pléiades P1, Airbus </br> Acquisition Date: 09-03-2015 </br> Resolution: 50cm </br> Off-Nadir: 5.4 </br>  Cloud Cover: 0% </br> Processed Imagery  <hr> Image Credits: </br> (c) 2015 Airbus': L.mapbox.tileLayer('mapbox.satellite,sidl.3rf1kcn2').addTo(map),
+
+
+            // High Resolution Satellite Image 2014 : Aleppo : c/o Mapbox
+            'Satellite: 2014| <br> High Resolution Satellite Imagery of Aleppo, Digital Globe </br> <hr> Image Details: </br> Satellite: WorldView2  </br> Acquisition Date: 08-10-2014 </br> Resolution: 50cm </br> Processed Imagery <hr> Image Credits: </br> (c) 2015 DigitalGlobe, Inc': L.mapbox.tileLayer('mapbox.satellite,sidl.m7vqvuzk').addTo(map),
+
+
+            // High Resolution Satellite Image 2012 : Aleppo : c/o Mapbox
+            'Satellite: 2012| <br> High Resolution Satellite Imagery of Aleppo, Digital Globe </br> <hr> Image Details: </br> Satellite: WorldView2 </br> Acquisition Date: 05-01-2012 </br> Resolution: 50cm </br>  Processed Imagery <hr>Image Credits: </br> (c) 2015 DigitalGlobe, Inc': L.mapbox.tileLayer('mapbox.satellite,sidl.ldl3cmd4').addTo(map),
+
+            // High Resolution Satellite Image 2012 : Aleppo : c/o Mapbox
+            'Satellite: Mapbox| <br> High Resolution Satellite Imagery of Aleppo, Mapbox </br> <hr> This is the default satellite imagery layer provided by Mapbox. It is a live feed of satellite imagery data that combines aerial and satellite data from multiple sources.<hr> Image Credits: </br> (c) Digital Globe': L.mapbox.tileLayer('mapbox.satellite').addTo(map),
+
+            //Open Street Maps: Stame High Contrast -> Figure Ground
+            'OpenStreetMaps| <br> Stylized OpenStreetMaps Layer of Aleppo, Mapbox </br> <hr> A crowd-sourced map generated by the Open Street Maps community. Using the High-Contrast Style designed by Stamen Design, we have created a Figure-Ground Map to visualize the extent of urban mapping in Aleppo. <hr> Layer Credits: </br> (c) 2016 OpenStreetMaps': L.mapbox.tileLayer('c4sr.4f494985').addTo(map)
+	    }, {
+
+
+            //DAMAGE: UNOSAT / unosatLayer
+            'Damage: UNOSAT | <br> 35,936 sites across Aleppo, have been identified as damaged by UNITAR’s Operational Satellite Applications Programme, UNOSAT, according to their September 2016 analysis. <hr> Legend: </br> Red: Destroyed: </br> Orange: Severely Destroyed </br> Yellow: Moderately Damaged</br> <hr> Data Source: </br> 2016 UNITAR-UNOSAT': culturalLayer2,
+
+
+            //Neighborhoods layer
+            'Neighborhoods | <br> This this neighborhoods has been adapted from the one used by UN Habitat and Reach in 2013. The neighborhoods have been crossreferenced with Google Maps and Wikimapia to verify the UNOSAT dataset.<hr> Layer Credits: </br> Center for Spatial Research': featureLayer,
+
+            //Cultural Sites : featureLayer7
+           // 'Cultural Sites| <br> The Humanitarian Information Unit (HIU) at the U.S. Department of State has identified, 241 cultural sites. <hr> Legend: </br> Green: Civic </br> Blue: Residential </br> Purple: Educational </br> Dk. Green: Religious </br> Dk. Blue: Commercial <hr> Data Source: </br> 2015 HIU / US Dept of State': culturalLayer
+
+	    });
+
+        /* Layer Switcher Script
+        ================================================== */
+
+	    $(function() {
+
+	        $.each(controls._layers, function(i, v) {
+	            var ifChecked = map.hasLayer(v.layer) ? ' checked' : '';
+	            var name = (v.name).split("|")[0];
+	            var desc = (v.name).split("|")[1];
+
+	            if (v.overlay) {
+	                allLayers['overlay'][i] = v.layer;
+	                $("#layer-switcher").append('<div class="col-sm-9">' +
+	                    '<input type="checkbox" name="overlay" desc="' + desc + '" value="' + i + '" ' + ifChecked + '> ' + name + '</div>');
+	            } else {
+	                allLayers['base-layer'][i] = v.layer;
+	                $("#layer-switcher").prepend('<div class="col-sm-9">' +
+	                    '<input type="radio" name="base-layer" desc="' + desc + '" value="' + i + '" ' + ifChecked + '> ' + name + '</div>');
+	            }
+	        });
+
+	        $("input[name='overlay'], input[name='base-layer']").click(function(e) {
+	            var layerClicked = $(this).val(),
+	                layerType = $(this).attr('name');
+
+	            if ($(this).is(':checked')) {
+	                $('.right-col .description').html("<b>" + $(this).parent().text() + "</b><br><p>" + $(this).attr('desc') + "</p>");
+	            }
+	            if (layerType == 'base-layer') {
+	                $.each(allLayers['base-layer'], function(i, v) {
+	                    if (v && map.hasLayer(map._layers[i])) {
+	                        map.removeLayer(map._layers[i]);
+	                    }
+	                });
+	                map.addLayer(allLayers[layerType][layerClicked]);
+	            } else if (map.hasLayer(map._layers[layerClicked])) {
+	                map.removeLayer(map._layers[layerClicked]);
+	            } else {
+	                map.addLayer(allLayers[layerType][layerClicked]);
+	            }
+	        });
+	    });
+    </script>
+
+    <!--Search Function Script -->
+    <script>
+    $(document).ready(function() {
+        $("input#q").click(function() {
+            $(this).attr('placeholder', '');
+        });
+    });
+
+  function hex2rgb(hex) {
+        var opacity = 0.75;
+        var h=hex.replace('#', '');
+        h =  h.match(new RegExp('(.{'+h.length/3+'})', 'g'));
+
+        for(var i=0; i<h.length; i++)
+            h[i] = parseInt(h[i].length==1? h[i]+h[i]:h[i], 16);
+
+        if (typeof opacity != 'undefined')  h.push(opacity);
+
+        return 'rgba('+h.join(',')+')';
+    }
+    </script>
+
+
+
+</body>
+
+</html>

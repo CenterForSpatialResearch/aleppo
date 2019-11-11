@@ -1,0 +1,205 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+.map {
+  position: relative;
+  overflow: hidden; /* No scrollbars. */
+}
+.map-content {
+  height: 100%;
+  width: 100%;
+}
+.map-sidebar {
+  position: absolute;
+  top: 75px;
+  right: 0;
+  bottom: 0;
+  width: 335px;
+  z-index: 100;
+  border-left: 1px solid #fff;
+  display: none;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+.map-sidebar .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding: 5px;
+  border-bottom: 1px solid #fff;
+  color: white;
+}
+.map-sidebar .content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.map-date-picker {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 335px;
+  height: 75px;
+  z-index: 100;
+  color: white;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+.map-date-picker label {
+  font-weight: normal;
+  font-size: 12px;
+  margin: 5px 5px 0 5px;
+}
+.map-date-picker input[type="text"] {
+  margin: 5px;
+  padding: 6px;
+  border-radius: 4px;
+  color: #555;
+  width: 325px;
+}
+#close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 35px;
+  color: white;
+  text-decoration: none;
+}
+#close-button:hover {
+  text-decoration: none;
+}
+
+/* This makes the map as big as possible in the HTML page. */
+html, body, .map {
+  height: 100%;
+  width: 100%;
+}
+
+/* If you want the map to appear as part of a page of content, comment out the above selector, and
+give the map an explicit size, and adjust the HTML content accordingly. For example: */
+/*
+.map {
+  width: 100%;
+  height: 600px;
+}
+*/
+
+/* Styling for the video thumbnails in the right-hand sidebar.*/
+.video {
+  border-bottom: 1px solid white;
+  position: relative;
+}
+.video>a {
+  /* Remove the 3-px gap below the thumbnails. */
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+.video a {
+  display: block;
+  color: white;
+}
+.video a.title-link {
+  padding: 5px;
+}
+.video a:hover {
+  text-decoration: none;
+}
+.video .info {
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.video .title {
+  /* blank */
+}
+.video .date {
+  text-align: right;
+}
+
+/* Styling for the circular markers. */
+.icon {
+  /*border: 1px solid red;*/
+  background-color: #233a36;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  display: table; /* Align the text vertically in the circle. */
+}
+.icon:hover {
+  background-color: #44ddc8;
+}
+.icon>div {
+  /* Aligns the text vertically in the circle. */
+  display: table-cell;
+  vertical-align: middle;
+}
+.xs {
+  background-color: rgba(29,30,29, 0.7);
+}
+.s {
+  background-color: rgba(35,58,54, 0.7);
+}
+.m {
+  background-color: rgba(42,88,81, 0.7);
+}
+.l {
+  background-color: rgba(49, 119, 109, 0.7);
+}
+.xl {
+  background-color: rgba(56, 152, 138, 0.7);
+}
+.xxl {
+  background-color: rgba(56, 152, 138, 0.7);
+}
+
+.nav {
+  position: absolute;
+  left: 30px;
+  right: 0px;
+  top: 0px;
+  height: 30px;
+  z-index: 100;
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+}
+.nav a.selected {
+  text-decoration: underline;
+}
+.nav ul {
+  list-style-type: none;
+}
+.nav li {
+  float: left;
+  margin-top: 10px;
+  margin-right: 20px;
+  font-size: 24px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue", "Helvetica", sans-serif;
+  font-weight: 300;
+}
+
+

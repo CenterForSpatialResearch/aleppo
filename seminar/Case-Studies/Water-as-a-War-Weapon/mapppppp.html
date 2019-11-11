@@ -1,0 +1,33 @@
+<html>
+<script>
+// Add your access token here: 
+L.mapbox.accessToken = 'pk.eyJ1Ijoibmljb2RlbHYiLCJhIjoiY2lrMWVkdXFjMzlweXZnbHpxaWJyODRhNiJ9.Nd-tDMxa1wOPr51o5mskiw';
+// Add the layer you would like to use as your base layer. In this case we are using mapbox.satellite
+var map = L.mapbox.map('map')
+// .setView([Lat, Long], Zoom)
+    .setView([36.235, 37.5817], 9);
+
+map.scrollWheelZoom.disable();
+
+
+// Use styleLayer to add a Mapbox style created in Mapbox Studio
+L.mapbox.styleLayer('mapbox://styles/nicodelv/cinuyyuuv0002b4nrx00o5xk2').addTo(map);
+
+// Add your neighborhood or any uploaded shape file here
+var myLayer = L.mapbox.featureLayer('nicodelv.024lc40b').addTo(map);
+myLayer.on('layeradd', function(e) {
+// Add a pop up to see attributes from your file
+
+var popupContent = '<strong>' + e.layer.feature.properties.title;
+  e.layer.bindPopup(popupContent);
+});
+
+L.control.layers({
+    // ADD: Satellite Layer of Mapbox or any other generic mapbox Layer.
+    'Streets ': L.mapbox.tileLayer('nicodelv.024lc40b').addTo(map),
+    // ADD: Style Map you created for the Basemap. Here we are using the Figure-Ground Map
+    'Satellite ': L.mapbox.tileLayer('mapbox.satellite')
+}
+).addTo(map);
+</script>
+</html>

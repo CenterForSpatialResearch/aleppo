@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Conflict Urbanism: Aleppo</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+<!--<div id='legend' style='display:none;'>
+	<strong>Areas of Control in Aleppo</strong>
+	<nav class='legend clearfix'>
+		<span style='background:'-->
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoidmlvbGV0d2hpdG5leSIsImEiOiJjaWs2NXJyaW4wMHVidjRrdDVueGQ2bGk4In0.5BgQAwPEg4AXg0CpLxq7Yw';
+
+var map = L.mapbox.map('map',null)
+    .setView([36.209, 37.1618], 12);
+
+// Use styleLayer to add a Mapbox style created in Mapbox Studio
+L.mapbox.styleLayer('mapbox://styles/mapbox/light-v9').addTo(map);
+
+// var neighborhoods = L.mapbox.tileLayer('violetwhitney.cuhi2mvs')
+// 	        .on('ready', function(layer) {
+// 	            this.eachLayer(function(marker) {
+// 	            	layer.marker.bindPopup(marker.toGeoJSON().properties.NAME + '<br \/>' + marker.toGeoJSON().properties.NAME_A + '<\/b>');
+// 	            });
+// 	        })
+// 	        .addTo(map);
+
+
+//December 2015/April 2015 UNOSAT
+// L.mapbox.styleLayer('mapbox://styles/violetwhitney/ciwwitmj600ch2qnyq6km1k7t').addTo(map)
+
+//September 2016
+L.mapbox.styleLayer('mapbox://styles/violetwhitney/ciwz6rq6700232qsd3krmep5h').addTo(map)
+
+map.removeControl(map.zoomControl);
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+
+</script>
+</body>
+</html>

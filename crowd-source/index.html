@@ -1,0 +1,537 @@
+<!-- Function: Crowd Sourcing Mapping Platform 
+	 Madeeha Merchant
+	 Associate Rsearch Scholar
+	 Email: mym2107@columbia.edu
+	 Center for Spatial Research 
+	 Mar 2016
+================================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<title> Conflict Urbanism: Aleppo </title>
+
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+
+        <!-- Bootstrap core Headers 
+        ================================================== -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device=width, initial-scale=1.0, maximum-scale=1 user-scalable=no">
+		
+		<meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico"> 
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+		<!-- BNavbar -->
+		<link href="navbar-fixed-top.css" rel="stylesheet">
+		<link href="navbar-fixed-bottom.css" rel="stylesheet"> 
+
+		<!-- Custom styles for this template -->
+        <link href="sticky-footer-navbar.css" rel="stylesheet"> 
+
+        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+
+        <!-- Firebase and Leaflet Setup -->
+		<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.6/firebase.js'></script>
+		<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+		<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' />
+		<link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' /> 
+	  	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet' /> 
+
+	  	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+
+	    <!-- main style -->
+	    <link href='Aleppo.css' rel='stylesheet' />
+
+	</head>
+	<body>
+
+	<div id="myModal" class="modal fade">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title">Login:</h4>
+	                <h6 class="modal-text"> <br>Please login with the User ID and Password provided to you, or else Email us to request one.</br></h6>
+	            </div>
+	            <div class="modal-body text-center">
+	                <button id="google-login" type="button" class="btn btn-primary"> Google+ </button>
+	                <p class="text-warning"><small> Note: Please do not use your google login.</small></p>
+
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+
+
+	  <!-- Navigation Bar Setup
+      ================================================== -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Conflict Urbanism - Aleppo</a>
+        </div>
+
+
+	  <!-- Navbar Menus
+      ================================================== -->
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home 
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="About.html" 
+                       target="popup" 
+                       onclick="window.open('About.html', 'About', 'width=400,height=800'); return false;" > ABOUT</a>
+                <li><a href="http://c4sr.columbia.edu/" target="_blank">CSR</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+
+    <div class="container">
+	  
+	  <!-- Intro Panel / Accordion
+      ================================================== -->
+      
+      <div class="panel-group" id="accordion"> 
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" 
+               href="#accordionOne">
+              Add Your Story <a id="displayName"> </a>
+            </a>
+          </h4>
+        </div>
+
+        <div id="accordionOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+          <small text-align="justify"> This map allows people to navigate and add to the map of Aleppo, neighborhood-by-neighborhood. Orientation is structured by the logic of the city – from its centrally located Citadel to its surroundings. Whether you are inside or outside of Aleppo, we you can contribute by adding your story to the map. You can annotate locations, or add images and narratives.</small> 
+ 		  <br></br>
+
+          		<a class="btn btn-sm btn-default" href="Instructions_English.pdf" target="_blank" role="button">Instructions in English &raquo;</a>
+          		<a class="btn btn-sm btn-default" href="Instructions_Arabic.pdf" target="_blank" dir="rtl" role="button">التعليمات &raquo;</a>
+          		<a id="login" class=" loginPopup btn btn-sm btn-default" data-provider="google">Add Your Story &raquo;</a>
+
+          </div>
+        </div>
+       </div>
+
+
+      <div class="panel panel-default">
+      	
+      		  <!-- Map
+      ================================================== -->
+	  			<div class="col-xs-2" class="hide-xs" class="visible-sm" class="visible=md" class="visible=lg"> <strong>Neighborhood</strong>
+	  				<ul class="list-unstyled list-group" id='marker-list'></ul>
+	  			</div>
+
+				<div id="map" class="col-xs-10">.span 10
+				</div>
+  
+       </div>
+
+
+	  <!-- Footer
+      ================================================== -->
+		<div class="navbar-inverse navbar-fixed-bottom" role="navigation" class="hidden-sm" class="hidden-md" class="visible-lg">
+			       <hr>
+	  		<div class="container">
+	  			<div class="navbar-text12">
+
+	  			<p> <small> Center for Spatial Research, Columbia University   </small></p>
+	  			</div>
+	  		</div>
+	  	</div>
+    </div> 
+
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- Mapbox Setup -->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script> 
+
+    <!-- Firebase and Leaflet Setup -->
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script> 
+	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script> 
+	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'></script>
+	
+	<!-- Mapbox + Firebase
+    ================================================== -->
+	
+		<script>
+		L.mapbox.accessToken = 'pk.eyJ1Ijoic2lkbCIsImEiOiJkOGM1ZDc0ZTc5NGY0ZGM4MmNkNWIyMmIzNDBkMmZkNiJ9.Qn36nbIqgMc4V0KEhb4iEw';
+		
+		// Firebase integration
+
+		var lat = 36.198;
+		var lng = 37.1518;
+		var zoom = 13;
+
+		//FIREBASE Account: https://resplendent-torch-5921.firebaseio.com/web/data'
+		//FIREBASE Account: https://sweltering-inferno-4606.firebaseio.com/web/data'
+
+		//var base = new Firebase('https://resplendent-torch-5921.firebaseio.com/web/uauth');
+		var base = new Firebase('https://sweltering-inferno-4606.firebaseio.com/web/uauth');
+		//var usersRef = new Firebase('https://resplendent-torch-5921.firebaseio.com/web/data/users');
+		var usersRef = new Firebase('https://sweltering-inferno-4606.firebaseio.com/web/data/users');
+		//var markersRef = new Firebase('https://resplendent-torch-5921.firebaseio.com/web/data/markers');
+		var markersRef = new Firebase('https://sweltering-inferno-4606.firebaseio.com/web/data/markers');		
+		//var markersRef = new Firebase('https://resplendent-torch-5921.firebaseio.com/web/data/markers2');
+		
+		var authData = base.getAuth();
+
+		// Initiate PopUp To Sign In
+		var authData = base.onAuth(function(auth) {		
+			if (auth) {
+				console.log(auth);
+				$('#displayName').html(auth.google.displayName).css({'display':'inline-block'});
+				$('#login').css({'display':'none'});
+				$("#myModal").modal('hide');
+			}else{
+				$('#login').css({'display':'inline-block'});
+				$('#displayName').css({'display':'none'});
+			}
+		});	
+
+		var markerPopup = false; 
+
+		var map = L.map('map', {
+		    zoomControl: false
+		}).setView([lat, lng], zoom);
+
+
+		/* Custom Zoom + Home Button Code
+    	================================================== */
+
+		L.Control.zoomHome = L.Control.extend({
+		    options: {
+		        position: 'topleft',
+		        zoomInText: '+',
+		        zoomInTitle: 'Zoom in',
+		        zoomOutText: '-',
+		        zoomOutTitle: 'Zoom out',
+		        zoomHomeText: '<i class="fa fa-home" style="line-height:2;"></i>',
+		        zoomHomeTitle: 'Zoom home'
+		    },
+
+		    onAdd: function (map) {
+		        var controlName = 'gin-control-zoom',
+		            container = L.DomUtil.create('div', controlName + ' leaflet-bar'),
+		            options = this.options;
+
+		        this._zoomInButton = this._createButton(options.zoomInText, options.zoomInTitle,
+		        controlName + '-in', container, this._zoomIn);
+		        this._zoomHomeButton = this._createButton(options.zoomHomeText, options.zoomHomeTitle,
+		        controlName + '-home', container, this._zoomHome);
+		        this._zoomOutButton = this._createButton(options.zoomOutText, options.zoomOutTitle,
+		        controlName + '-out', container, this._zoomOut);
+
+		        this._updateDisabled();
+		        map.on('zoomend zoomlevelschange', this._updateDisabled, this);
+
+		        return container;
+		    },
+
+		    onRemove: function (map) {
+		        map.off('zoomend zoomlevelschange', this._updateDisabled, this);
+		    },
+
+		    _zoomIn: function (e) {
+		        this._map.zoomIn(e.shiftKey ? 3 : 1);
+		    },
+
+		    _zoomOut: function (e) {
+		        this._map.zoomOut(e.shiftKey ? 3 : 1);
+		    },
+
+		    _zoomHome: function (e) {
+		        map.setView([lat, lng], zoom);
+		    },
+
+		    _createButton: function (html, title, className, container, fn) {
+		        var link = L.DomUtil.create('a', className, container);
+		        link.innerHTML = html;
+		        link.href = '#';
+		        link.title = title;
+
+		        L.DomEvent.on(link, 'mousedown dblclick', L.DomEvent.stopPropagation)
+		            .on(link, 'click', L.DomEvent.stop)
+		            .on(link, 'click', fn, this)
+		            .on(link, 'click', this._refocusOnMap, this);
+
+		        return link;
+		    },
+
+		    _updateDisabled: function () {
+		        var map = this._map,
+		            className = 'leaflet-disabled';
+
+		        L.DomUtil.removeClass(this._zoomInButton, className);
+		        L.DomUtil.removeClass(this._zoomOutButton, className);
+
+		        if (map._zoom === map.getMinZoom()) {
+		            L.DomUtil.addClass(this._zoomOutButton, className);
+		        }
+		        if (map._zoom === map.getMaxZoom()) {
+		            L.DomUtil.addClass(this._zoomInButton, className);
+		        }
+		    }
+		});
+
+		// add the new control to the map
+		var zoomHome = new L.Control.zoomHome();
+		zoomHome.addTo(map);
+		L.control.fullscreen().addTo(map);
+
+
+		/* Add Markers and Marker-Feature Layer
+    	================================================== */		
+
+		var markerList = document.getElementById('marker-list');
+		
+		var MarkerLayer = L.geoJson().addTo(map);
+		var tempMarkerLayer = L.mapbox.featureLayer().addTo(map);
+		var labelMarkerLayer = L.mapbox.featureLayer().addTo(map);
+		var imageMarkerLayer = L.mapbox.featureLayer().addTo(map);
+		var NarrMarkerLayer = L.mapbox.featureLayer().addTo(map);
+		
+		// Add markers to firebase
+		markersRef.limit(200).on('value', function(snapshot) {
+		    var features = []
+		    for (var k in snapshot.val()) {
+		      features.push(snapshot.val()[k]);
+		    }
+
+		    // And for each new marker, add a featureLayer
+		    L.mapbox.featureLayer(features)
+		        .setFilter(function(l){
+		          if ( l.properties && l.properties.type == 'Label') {
+		            	return true;
+		            }
+		        })
+		        .addTo(labelMarkerLayer);
+
+	        L.mapbox.featureLayer(features)
+		        .setFilter(function(l){
+		          if ( l.properties && l.properties.type == 'Narrative') {
+		            	return true;
+		            }
+		        })
+		        .addTo(NarrMarkerLayer);
+
+	        var imageMarkers = L.mapbox.featureLayer(features)
+	        	.setFilter(function(l){
+		          if ( l.properties && l.properties.type == 'Image') {
+		            	return true;
+		            }
+		        })
+		        .addTo(imageMarkerLayer);
+
+	        imageMarkers.eachLayer(function (m) {
+	        		var popupContent =  '<img src="'+ m.feature.properties.title+'" style="width:280px;height:228px;">';
+
+				    m.bindPopup(popupContent,{
+				        closeButton: true,
+				        minWidth: 320
+				    });
+	        	});     
+		});
+
+		/* old: sidl.mhk5gaj2  new:  sidl.pb54bhg5 */
+		var featureLayer = L.mapbox.featureLayer('sidl.pb54bhg5')
+			.on('click', function(e) {
+				e.preventDefault();
+			})
+			.on('mouseover', function(e) {
+				if (!markerPopup){
+					var content = '<b>' + e.layer.toGeoJSON().properties.NAME + '<br \/>' +
+										'' + e.layer.toGeoJSON().properties.NAME_A + '<\/b>';
+					L.popup({}).setLatLng(e.layer.getBounds().getCenter()).setContent(content).openOn(map);
+				}
+			})
+			.on('ready', function(e) {
+				this.eachLayer(function(layer) {
+					var item = markerList.appendChild(document.createElement('li'));
+					item.innerHTML = layer.toGeoJSON().properties.NAME;
+					item.onclick = function() {
+						map.fitBounds(layer.getBounds());
+						var content = '<b>' + layer.toGeoJSON().properties.NAME + '<br \/>' +
+										'' + layer.toGeoJSON().properties.NAME_A + '<\/b>';
+						L.popup({}).setLatLng(layer.getBounds().getCenter()).setContent(content).openOn(map);
+					};
+				});
+			})			
+
+		/* Leaflet Map Layers : Display
+    	================================================== */
+			
+			L.control.layers({
+			'Aleppo 2015': L.mapbox.tileLayer('mapbox.satellite,sidl.3rf1kcn2').addTo(map),
+			'Aleppo 2014': L.mapbox.tileLayer('mapbox.satellite,sidl.m7vqvuzk').addTo(map),
+  			'Aleppo 2012': L.mapbox.tileLayer('mapbox.satellite,sidl.ldl3cmd4').addTo(map),
+  			'Satellite': L.mapbox.tileLayer('mapbox.satellite').addTo(map),
+  			'OpenStreetMap': L.mapbox.tileLayer('c4sr.4f494985').addTo(map)
+		}, {
+    		'Neighborhoods': featureLayer,
+    		'Labels': labelMarkerLayer,
+    		'Images': imageMarkerLayer,
+    		'Narratives': NarrMarkerLayer
+		}).addTo(map);
+
+		var popupForm = '<form>'+
+	    	 '<h3>Add your Story</h3>' + 
+    		 '<div class="radio">' +
+	            '<label><input type="radio" value="Label" name="formSelector"> Label</label>' +
+	            '<label><input type="radio" value="Image" name="formSelector"> Image</label>' +
+	            '<label><input type="radio" value="Narrative" name="formSelector"> Narrative</label>' +
+	         '</div>' +
+	         '<div id="formSelectorLabel" class="formSelector">' +
+	            '<label for="inputName">Label</label>' +
+	            '<input type="Name" class="form-control" id="inputName" placeholder="Add Text">' +
+	            '</div>' +
+	         '<div id="formSelectorImage" class="formSelector">' +
+	            '<label for="inputImage">Image</label>' +
+	            '<input type="url" class="form-control" id="inputImage" placeholder="Add Image URL">' +
+	            '</div>' +
+	         '<div id="formSelectorNarrative" class="formSelector">' +
+	            '<label for="inputNarrative">Narrative</label>' +
+	            '<textarea type="textarea" class="form-control" id="inputNarrative" placeholder="Add Narrative (300 char)" maxlength="300"></textarea>' +
+	            '</div>' +
+	        '<br><button id="add-button" type="submit" class="btn btn-primary">Add</button>' +
+			    '</form>';
+
+
+		/* Firebase Integration
+    	================================================== */
+
+		map.on('click', function(e){
+
+			if (base.getAuth()){
+
+				if (tempMarkerLayer.getLayers().length > 0){
+					tempMarkerLayer.clearLayers();
+				}
+
+				var marker = L.marker(e.latlng, {
+					draggable: true,
+					icon: L.mapbox.marker.icon({
+						'marker-color': '#000'
+					})
+				})
+				.bindPopup(popupForm)
+				.addTo(tempMarkerLayer)
+				.openPopup();
+				markerPopup = true;
+				// every time the marker is dragged
+				marker.on('dragend', function(e) {
+					marker.openPopup();
+				});
+			}
+		});
+
+
+		$(function(){
+
+			$(document).on("click", ".loginPopup", function () {
+				$("#myModal").modal('show');
+			});
+			$(document).on("click", "#google-login", function () {
+		    	base.authWithOAuthPopup("google", function(error, authData) { 
+		    		console.log(error);
+		    		console.log(authData);
+		    	}, {
+				  remember: "sessionOnly",
+				  scope: "email"
+				});
+		    });
+		    
+		    $(document).on("click", "input[name='formSelector']:radio", function () {
+		    	var divId = 'formSelector' + $("input:radio[name='formSelector']:checked").val();
+		    	$('.formSelector').css({ 'display':'none' });
+		    	$('form > .btn, #'+divId).css({ 'display':'block' });
+		    });
+
+		    $(document).on('submit','form',function(e){
+		    	e.preventDefault();
+
+		    	var dataType = $("input:radio[name='formSelector']:checked").val();
+		    	var data = dataType == 'Label'? $(this).find('.formSelector #inputName').val() : dataType == 'Image' ?  $(this).find('.formSelector #inputImage').val() : $(this).find('.formSelector #inputNarrative').val() ;
+		    	
+		    	var color = dataType == 'Label' ? '#0c83a9' : dataType == 'Image' ? '#a8f293' : '#e15258' ;
+		    	
+			   if(data === ''){
+			        alert('Field cannot be left empty!');
+			        return false;
+			    }else{
+
+			    	if(dataType === 'Image'){
+				    	if(!ImageExist(data)){
+				    		alert('URL should be of Image!');
+				    		return false;
+			    		}
+		    		}
+			    	e.preventDefault();
+			    	
+			    	var markers = tempMarkerLayer.getLayers();
+			    	var markerLoc = markers[0].toGeoJSON();
+
+			    	markerLoc.properties['marker-color'] = color;
+					markerLoc.properties.title = data;
+					markerLoc.properties.type = dataType;
+
+			    	// And save it to Firebase
+			    	markersRef.push(markerLoc);
+
+			    	if (tempMarkerLayer.getLayers().length > 0){
+						tempMarkerLayer.clearLayers();
+					}
+					alert("Thank you for contributing.");
+			    	
+			    }
+			});
+		});
+
+
+		// Checking Image
+		function myCallback(url, answer) {
+		    alert(url + ': ' + answer);
+		}
+
+		function IsValidImageUrl(url, callback) {
+		    var img = new Image();
+		    img.onerror = function() { callback(url, false); };
+		    img.onload =  function() { callback(url, true); };
+		    img.src = url;
+		}
+
+		function ImageExist(url) {
+		     var img = new Image();
+		     img.src = url;   
+		     if (img.height !== 0) {
+		         return false;
+		     } else {
+		         return true ;
+		     }
+		         
+		 }
+
+		</script> 
+
+
+	</body>
+</html>

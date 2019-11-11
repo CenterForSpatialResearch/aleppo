@@ -1,0 +1,240 @@
+		body
+
+		{
+			margin:0;
+			padding: 55px 0;
+			padding-bottom: 1px;
+			background-color: white;
+			font-family: 'Open Sans';
+		}
+
+	
+		hr {
+		   display: block;
+		   position: relative;
+		   padding: 0;
+		   margin: 1px auto;
+		   height: 0;
+		   width: 100%;
+		   max-height: 0;
+		   font-size: 1px;
+		   line-height: 1;
+		   clear: both;
+		   border: none;
+		   border-top: 0px solid black;
+		   border-bottom: 1px solid black;
+		}
+
+		.navbar-default {
+		  background-color: #000000;
+		  border-color: black;
+		}
+
+		.navbar-default 
+		.navbar-brand {
+		  color: black;
+		  font-size: 1.1em;
+		  font-weight: bold;
+
+		}
+
+		.navbar-default 
+		.navbar-text {
+		  text-align: center;
+		  color: #f7f7f7;
+		}
+
+		.navbar-fixed-top{
+			background: white;
+			color: black;
+			font-size: 1.1em;
+			padding: 0px;
+		}
+
+		.navbar-nav{
+			background: white;
+			color: gray;
+			font-size: 1em;
+		}
+
+		.navbar-default 
+		.navbar-nav > li > 
+		.dropdown-menu > li > {
+		  background-color: #000000;
+		  font-size: 1.2em;
+		}
+
+		.navbar-fixed-bottom{
+			background: white;
+			color: black;
+			text-indent: 0px;
+			text-align: justify;
+			min-height: 50px;
+			max-height: 50px;
+			padding-top: 1px;
+			padding-bottom: 1px;
+			font-size: 1em;
+		}
+
+
+		.jumbotron {
+		  	margin-top: 0px;
+		  	margin-bottom: 0px;
+		  	padding: 1px;
+		  	padding-top: 2px;
+		  	padding-bottom: 2px;
+		  	text-align: justify;
+
+		}
+
+		.col-xs-2{
+			background: white;
+			color: black;
+			padding: 0px;
+			text-align: left;
+			margin-top: 0px; d
+			overflow-x:auto;
+			margin-bottom: 0px;
+			margin-left: 0px;
+			border-radius: 2px;
+			border-color: white;
+			height: 910px;
+			font-weight: normal;
+			font-size: 0.90em;
+			overflow-x:auto !important;
+			padding-bottom: 10px;
+		}
+
+		.col-xs-10{
+			background: gray;
+			color: #000;
+			height: 910px;
+			text-align: center;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+  		.map{
+			background: gray;
+			color: white;
+			padding: 0;
+			text-align: center;
+			margin-top: 0px;
+			margin-bottom: 1px;
+		}
+
+		.leaflet-bar a {
+		    background-color: #fff;
+		    border-bottom: 1px solid #ccc;
+		    border-bottom-color: rgb(204, 204, 204);
+		    color: #444;
+		    display: block;
+		    height: 26px;
+		    width: 26px;
+		    line-height: 1.2 !important;
+		    text-align: center;
+		    text-decoration: none;
+		}
+
+  		.marker-list {
+			background: #eee;
+			color: black;
+			text-align: left;
+			overflow-x:auto !important;
+			margin-top: 0px;
+			margin-bottom: 2px;
+			margin:0;
+			position:absolute;
+			top:0; right:0; width:200px;
+			bottom:0;
+			padding: 5px;
+			border-radius: 3px;
+			font-size: 30% !important;
+  		}
+
+  		.marker-list li {
+      		padding: 0px;
+      		margin:0;
+      		list-style-type:none !important;
+      		font-size-adjust:0.68 !important;
+      		overflow-x:auto !important;
+  		}
+
+  		.marker-list li:hover {
+      		background:#222;
+  		}
+
+		.leaflet-popup-close-button { 
+			display:none; 
+		}
+
+		.control.layers{
+			text-align: :left;
+			vertical-align: left;
+		}
+        
+        fieldset { 
+        	width:240px; 
+        }
+
+        .Addform{
+    		margin: 20px;
+    	    background: white;
+    	}
+
+    	.btn.btn-primary{
+        	background: black !important;
+    	}
+
+    	.leaflet-popup-content {
+			width: 300px !important;
+			background: white;
+		}
+
+		.formSelector, form > .btn {
+			display: none;
+		}
+
+		.radio label{
+			margin-left: 15px;
+		}
+
+		li:hover {
+		  background-color: #DBDBDB;
+		  color: black;
+		  cursor: pointer;
+		}
+
+		li {
+		  font-size: 0.95 em;
+		  color: gray;
+		}
+
+		.leaflet-control-layers-expanded{
+			text-align: left;
+		}
+
+		.panel-group{
+			margin-top: 0px;		  
+			font-size: 1.1em;
+		}
+
+		.panel-title{
+			margin-top: 0px;		  
+			font-size: 0.95em;
+			font-weight: normal;
+		}
+
+		.navbar-text12{
+			margin-top: 10px;		  
+			font-size: 1.1em;
+			font-weight: normal;
+			text-align: center;
+			color: gray;
+		}
+
+		.panel-body{
+			text-align: left;
+			padding-bottom: 0px;
+		}
+

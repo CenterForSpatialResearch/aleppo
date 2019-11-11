@@ -1,0 +1,94 @@
+a {
+    color: black;
+}
+a:hover,
+a:focus {
+    color: black;
+    text-decoration: underline;
+}
+.row.top-row {
+    padding: 20px;
+}
+.row.top-row h5 {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0 20px;
+}
+.mid-column .row {
+    color: #000;
+    display: block;
+    height: 100%;
+    text-align: left;
+    max-width: 800px;
+    margin: 20px auto;
+    line-height: 1.3em;
+    font-size: 16px;
+    font-weight: 400;
+}
+#sticky-menu {
+    position: relative;
+    left: 28px;
+    padding-top: 6px;
+}
+#sticky-menu a:hover {
+    text-decoration: underline;
+}
+#sticky-menu li a img {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    position: relative;
+    top: -2px;
+}
+
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    background: none;
+}
+
+.nav>li>a>img {
+  max-width: none;
+  width: 8%;
+  padding-right: 9px;
+  margin-left: 30px;
+}
+.affix {
+    top: 20px;
+}
+.img-padding {
+    padding: 20px;
+}
+.body-text {
+    line-height: 1.3em;
+    font-size: 16px;
+}
+.body-text h5 {
+    font-weight: 700;
+    font-size: 22px;
+    padding: 0;
+}
+.footnote {
+    display: inline;
+    font-size: 66%;
+    position: relative;
+    top: -6px;
+    padding: 0;
+}
+.footnote-ref {
+    position: relative;
+    font-size: 70%;
+}
+
+
+
+@media (max-width: 991px) {
+    ul.c4sr-nav {
+        display: none;
+    }
+
+    /* footnotes */
+    
+
+    
+}

@@ -1,0 +1,169 @@
+<!-- Conflict Urbanism: Aleppo
+     Center for Spatial Research
+     Madeeha Merchant (mym2107@columbia.edu)
+
+================================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title> Conflict Urbanism: Aleppo</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- optimize for search ... student name ? -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- boostrap - TODO: use local for performance -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/c28915cb-7a1f-477c-9084-e9e755ede452.css"/>
+
+  <!-- TODO - optimize and consolidate files -->
+  <link href='css/conflict_main.css' rel='stylesheet' />
+  <link href='css/conflict_course.css' rel='stylesheet' />
+  <link href='css/framing-footnotes.css' rel='stylesheet' />
+  <link href='css/csr.css' rel='stylesheet'/>
+</head>
+
+<body>
+  <div class="container main">
+    <div class="row top-row">
+      <div class="col-md-12">
+        <h5><a href="index.html">Conflict Urbanism Aleppo</a></h5>
+        <h5>Remote Sensing Urban Damage</h5>
+        <div class="img-padding">
+          <img src="img/Aleppo_June2016_header.png" class="img-responsive" />
+
+        </div>
+      </div>
+    </div>
+
+<div class="row">
+  <!-- menu -->
+  <div class="col-md-3 scrollspy">
+    <div id="sticky-menu ">
+      <ul id="nav" class="nav c4sr-nav" data-spy="affix">
+        <li><a href="#intro"><img src="img/dot-1.png" />Introduction</a></li>
+        <li><a href="#aleppo"><img src="img/dot-1.png" />Previous Approaches</a></li>
+        <li><a href="#urban"><img src="img/dot-1.png" />Landsat Imagery</a></li>
+        <li><a href="#data"><img src="img/dot-1.png" />Mapping Pixel Value Change</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- main -->
+  <div class="col-md-6 body-text">
+     <h5 id="intro">Introduction</h5>
+        This case study documents an experimental approach of analyzing low resolution Landsat satellite imagery to document and map pixel value change in Aleppo between 2011 and the end of June 2016. Using a method that is typically employed by remote sensing scientists to study ecological change, we have developed an algorithm that is trained on a different geography – urban Aleppo – to ask a different set of questions – how might we remotely sense urban damage that is the result of war? <br/><br/>Using nearly two hundred open-access satellite images, we have mapped the spatiality and temporality of changes in pixel values of satellite images over Aleppo, offering a remotely collected record of significant change in Aleppo measured twice a month for the last 64 months. As an experimental method it is rife with ambiguity and flaws, but opens up wide horizons for future work by our research group as well as by journalists and human rights advocates who are seeking new ways to document the memory of destruction in urban war zones.
+<br/><br/>
+
+    <h5 id="aleppo">Previous Approaches</h5>
+        To date, satellite-based assessments of damage in Aleppo have most often come through qualitative, visual interpretation of very high resolution (less than 1 meter) satellite images acquired at two dates of interest. Visible changes in urban features -- a damaged building, a scorched field, or a collapsed bridge, for example -- have been documented by groups including Human Rights Watch (HRW) and the United Nations’ Operational Satellite Applications Programme (UNOSAT). Though HRW’s and UNOSAT’s approaches differ in terms of visual analytical techniques and the selection of image dates, both approaches rely on expensive commercial imagery, are highly localized (i.e., identifying point-locations of damage), and are not automated. Critically, since HRW and UNOSAT assessments often come in response to specific events such as barrel bomb campaigns by the Assad Regime, the passage of significant resolutions by the U.N, or the commencement of the Russian aerial bombing campaign, there is little information captured on the many interstitial and potentially small-scale damages resulting from ongoing bombing campaigns, assaults, and other acts of armed violence throughout the flow of the war.<br/><br/>Both UNOSAT and Human Rights Watch have produced multiple georeferenced datasets derived from commercial satellite imagery that capture specific locations of significant damages in Aleppo as well as Kobane, Homs, Damascus and other smaller cities. UNOSAT has released two damage maps of Aleppo over the last five years, drawing on five satellite images. Human Rights Watch has used a similar methodology to gather evidence for their reports. Image pairs used by UNOSAT and HRW for a given damage map have sometimes been taken as few as five days apart and other times as many as over 900 days apart. These damage assessments offer snapshots of conflict-induced urban damage but cannot capture the ebbs and flows of damage to Aleppo over the course of the war.<br/><br/><img src="img/TimeLine.png" class="img-responsive"/><br/>
+
+    <h5 id="urban">Landsat satellite imagery spatial, temporal, and spectral characteristics</h5>
+        Rather than relying on commercial imagery, we use open-access satellite imagery collected by two NASA/USGS satellites, Landsat 7 (launched in 1999) and Landsat 8 (launched in 2013). Each satellite has collected imagery over Aleppo every 16 days since the start of the War, and, together, have collected 238 images from March 11, 2011, through July 5, 2016. This density of coverage supports near-continual monitoring of the Civil War unrivaled by any other publicly-accessible dataset. <br/><br/> Data from Landsat satellites were never meant to be used to assess the effects of armed conflict on urban infrastructure, and were originally designed for ecological monitoring such as measuring forest health or mapping agricultural expansion. With those applications in mind, Landsat has two different kinds of sensors. The first is a multispectral sensor, with a series of bands (or channels) that are dedicated to measuring different wavelengths of light including near-infrared, red, green, or blue at a resolution of 30 meters on the ground per pixel. The amounts of light reflected by an object on the ground, and changes in the amount of light reflected by an object on the ground -- an apartment building, a street intersection, or a cluster of trees in a city park -- can reveal information about that object or its changes. For example, since healthy vegetation reflects an abundance of the sun’s near-infrared light but very little red light, comparing the amount of reflected near-infrared light to red light is a commonly used method for identifying healthy trees. <br/><br/><img src="img/PanValues.png" class="img-responsive"/><br/>Landsat 7 and 8 have another sensor that makes images that are read similarly to black-and-white photographs. The panchromatic sensor has a single band that collects visible light reflected off the Earth’s surface; dark features appear dark, light features appear light. Since the panchromatic sensor’s single band collects light that would have been split up across several multispectral bands, pixels in panchromatic imagery can have a finer resolution than pixels in Landsat multispectral imagery,  capturing 15 meters on the ground in each pixel.  This means that panchromatic imagery give a much more detailed perspective on the spatial distribution of changes in Aleppo than what could be seen with multispectral data.<br/><br/>The tone of each pixel in a panchromatic image is depicted by an 8-bit number; a perfectly dark pixel has a value of 0, a completely bright pixel is given the value of 255, and most features in Aleppo have values between 30 and 100. A pixel centered on a paved road, for example, may have a panchromatic value of 62 and a bright concrete roof of may have a value of 94. Vegetation like trees or gardens and exposed soil tend to appear as moderately dark with a panchromatic value around 24. Between successive images acquired 16 days apart, and certainly over the course of a year, pixel values change due to shifts in sun position, shadow alignment, atmospheric haze, and activities such as construction, farming, or, in the case of Aleppo, conflict-induced damage to infrastructure, buildings, or vegetation. <br/><br/>
+
+    <h5 id="data">Mapping Pixel Value Change</h5>
+        Since Landsat images were acquired every 16 days throughout the course of the Civil War, clouds and their shadows came and went, obstructing what the satellite could see of Aleppo. Removing clouds and shadow is the first task in preparing Landsat images for analysis.  <br/><br/><img src="img/CloudMasking.png" class="img-responsive"/><br/>
+        USGS provides maps of cloudy pixels in every Landsat image by finding pixels that are both very bright and relatively cold, and shadows cast by clouds based on cloud location and the sun’s illumination angle. With these maps, we readily removed clouds and shadows from each image, and remaining cloud- and shadow-free pixels were considered in the change assessment.<br/><br/><img src="img/ChangeMaps.png" class="img-responsive"/><br/>For each pair of images acquired 16 days apart, we recorded differences in pixel values across Aleppo. Changes in the brightness of all infrastructures, such as roadways, runways, and bridges, vegetation, and buildings were mapped for each change pair. Buildings that experienced damage were often darker afterwards, and this shift is represented by a decline in panchromatic values. Sites of destroyed trees, on the other hand, often appeared brighter due to the removal of the dark tree canopy and exposure of the lighter ground underneath.<br/><br>Across all 238 images, the majority of Aleppo appears ‘stable’ from one image to the next and most of the pixel-level changes are very low. Few pixels show significant changes between images but very large changes may indicate a bombed building or an intersection that has been covered in debris. In order to monitor the spatial and temporal diffusion of damages across Aleppo, only changes greater than a specific threshold were considered ‘significant’. By setting this threshold we have decided to ignore the ‘background’ changes which are likely caused by other factors. <br/><br>Since we used a series of satellite images collected only 16 days apart, we can identify discrete damage events over the course of the war. For example, we can map damages at and surrounding Aleppo’s hospitals that have been repeatedly bombed or track the war’s impacts on the historic citadel. We can also visualize smaller-scale or relatively ephemeral changes that would go unnoticed in punctuated change assessments from UNOSAT or HRW. Of special interest, the city’s roadways and intersections that have been critical to transporting goods and aid into and through the city also show regular changes over the course of the war; most of these changes go unmapped in the necessarily focused damage maps produced by UNOSAT and HRW. <br/><br/> For example, Castello Road in the northern part of the city served as a key access route to the rebel-held eastern portions of the city throughout the war. During May and June 2016 this road was deliberately targeted. This is documented extensively with YouTube videos and also is made visible through the Landsat analysis.<br/><br/><img src="img/LandSat1.png" class="img-responsive"/><div class="caption"><br/>Landsat Image of Castello road on May 25, 2016</div><br/><br/><img src="img/LandSat2.png" class="img-responsive"/><div class="caption"><br/>Landsat Image of Castello road on June 10, 2016 with areas of 'significant' pixel value change highlighted.</div><br/><br/><img src="img/HighRes1.png" class="img-responsive"/><div class="caption"><br/>Significant Landsat pixel value changes overlaid on March 2016 high resolution satellite imagery.</div><br/><br/><img src="img/HighRes2.png" class="img-responsive"/><div class="caption"><br/>High resolution satellite image from June 11, 2016 (one day after the second Landsat image was taken) which show major damage to Castello Road overpass as well as buildings in the surrounding area.</div><br/><br/><a><href="https://www.youtube.com/watch?v=35I7BrrfPhw"> <img src="img/YouTube.png" class="img-responsive"/></a><div class="caption"><br/>YouTube video filmed from a car driving west along Castello road that confirms the visible damage to this overpass and surrounding areas, starting at minute 1:01.</div><br/><br/><br/>
+        Case Study Team: <br/>Jamon Van Den Hoek, Grga Basic, Laura Kurgan, Dare Brawley <br/><br/><br/>
+
+        <a class="btn btn-default btn-block c4sr-button c4sr-big-button" href="index.html">Return to Case Studies</a><br/><br/><br/>
+
+
+</div>
+
+
+<div class="col-md-3">
+  <div class="footnotes">
+    <!--
+    <div class="footnote-ref footnote-ref-1-d"><sup>1</sup>Laura Kurgan. “Introduction” and “Kosovo 1999: SPOT 083-264” in <a href= "http://www.zonebooks.org/titles/KURG_CLO.html"> Close Up at a Distance: Mapping, Technology and Politics</a> 7-36, 113-128. Brooklyn, NY: Zone Books, 2013.</div>
+
+    <div class="footnote-ref footnote-ref-2-d"><sup>2</sup>Aleppo, Syria.<a href= "http://wikimapia.org/#lang=en&lat=36.206607&lon=37.159882&z=10&m=b&search=aleppo"> Wikimapia.</a> </div>
+
+    <div class="footnote-ref footnote-ref-3-d"><sup>3</sup>UNOSAT,  <a href= "http://www.unitar.org/unosat/node/44/2238?utm_source=unosat-unitar&utm_medium=rss&utm_campaign=maps"> “Damage Assessment of Aleppo, Aleppo Governorate, Syria”</a> </div>
+
+    <div class="footnote-ref footnote-ref-4-d"><sup>4</sup>Human Rights Watch. <a href= "https://www.hrw.org/news/2015/09/23/stem-flow-syrian-refugees-stop-barrel-bombs"> “To Stem the Flow of Syrian Refugees, Stop the Barrel Bombs.”  </a> September 23, 2015.</div>
+
+    <div class="footnote-ref footnote-ref-5-d"><sup>5</sup><a href= "https://www.hrw.org/news/2014/07/30/syria-barrage-barrel-bombs"> Human Rights Watch. “Syria: Barrage of Barrel Bombs.” July 30, 2014.</a>  </div>
+
+    <div class="footnote-ref footnote-ref-6-d"><sup>6</sup>Center for Conflict Negotiation and Recovery.<a href= "http://www.thealeppoproject.com">The Aleppo Project.</a> 2015. </div>
+
+    <div class="footnote-ref footnote-ref-7-d"><sup>7</sup>Violations Documentation Center. <a href= "http://www.vdc-sy.info/index.php/en/about">“Statistics for the number of martyrs.”</a> </div> -->
+
+  </div>
+</div>
+
+
+</div>
+<!-- end row -->
+
+  <div class="row red bottom-line">
+    <div class="col-sm-12">
+      <h5><center> Center for Spatial Research, Columbia University</center></h5>
+    </div>
+  </div>
+
+</div>
+
+<!-- TODO optimize this -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+
+<!-- TODO optimize, minify inline -->
+<script>
+$(document).ready(function() {
+
+  // bootstrap affix menu
+  $('#nav').affix({
+    offset: {
+      top: $('#nav').offset().top
+    }
+  });
+
+  // footnote logic
+  $('.footnote').each(function() {
+
+    /*
+    var f = $(this).attr('class').split(" ")[1];
+    var num = f.split("-")[1];
+    console.log(num);
+    var el = $('.' + f);
+
+    //var top = $('.' + f).position().top - 10;
+
+    console.log(el);
+    /*
+    var num_c = num - 1;
+    var offset = num_c * 88;
+    var top_n = top - offset;
+
+    // align footnote to position
+    $('.footnote-ref-' + num).css({
+      top: top_n
+    });
+    var final_p = $('.footnote-ref-' + num).position().top;
+    console.log(final_p);
+
+    */
+
+  });
+
+
+  // if window small then
+  if ($("ul.c4sr-nav").css("display") == "none" ){
+        $('.footnote-ref').each(function() {
+          $(this).css({
+            'top': 0,
+            'margin-bottom': '10px'
+          });
+        });
+  }
+
+
+});
+</script>
+</body>
+</html>

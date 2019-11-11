@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Aleppo Memory Map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiamVzc2VuZ2VicmV0c29uIiwiYSI6ImNpazY1cmtlbDAwdWF2NGt0MnR0aDJyaHcifQ.GsQzHj3VAyvz505bfkw-0Q';
+
+var map = L.mapbox.map('map', 'mapbox.high-contrast');
+map.scrollWheelZoom.disable();
+// The GeoJSON representing a point feature with a property of 'sounds'
+var geoJson = [
+{
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#05E',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/261082230&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.129371,36.220521]
+        }
+},
+    
+    {
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#05E',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/261393471&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.153916,36.213281]
+        }
+},
+    
+    {
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#05E',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/261397758&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.126568,36.214977]
+        }
+},
+{
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#490',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/261430018&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.137383,36.211333]
+        }
+},
+{
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#490',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/261498231&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.154216,36.207091]
+        }
+
+        },
+{
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#490',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/262394290&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.141191,36.205065]
+        }
+    },
+{
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#490',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/262546999&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.126944,36.211125]
+        }
+
+        },
+{
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#490',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/262554749&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.150139,36.209593]
+        }
+        },
+{
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#490',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/262563302&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.156952,36.198815]
+        }
+},
+{
+
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#05E',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/262715559&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.140387,36.217957]
+        }
+},
+
+    {
+    
+        type: 'Feature',
+        properties: {
+            title: '',
+            'marker-color': '#05E',
+            'marker-size': 'small',
+            'marker-symbol': 'circle',
+            url: 'http://en.wikipedia.org/wiki/Paris',
+            sounds: '<iframe width="100%" height="160" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/261385552&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false;visual=true"></iframe>'
+        },
+        geometry: {
+            type: 'Point',
+            coordinates: [37.162992,36.199403]
+        }
+}
+
+
+];
+
+
+
+var myLayer = L.mapbox.featureLayer().addTo(map);
+
+// Add the iframe in a custom popup using the custom feature properties
+myLayer.on('layeradd', function(e) {
+    var marker = e.layer,
+        feature = marker.feature;
+
+    // Create custom popup content
+    var popupContent =  '<a target="_blank" class="popup" href="' + 
+        feature.properties.url + '">' +
+        feature.properties.sounds + 
+        '<h2>' + feature.properties.title + '</h2>' + '</a>';
+
+    // http://leafletjs.com/reference.html#popup
+    marker.bindPopup(popupContent,{
+        closeButton: true,
+        minWidth: 320
+    });
+});
+
+// Add features to the map
+myLayer.setGeoJSON(geoJson);
+
+
+map.setView([36.198,37.1518], 13);
+
+</script>
+</body>
+</html>

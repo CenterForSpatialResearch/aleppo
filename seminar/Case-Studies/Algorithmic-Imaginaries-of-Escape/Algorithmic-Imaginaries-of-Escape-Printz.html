@@ -1,0 +1,239 @@
+<!-- Conflict Urbanism: Aleppo
+     Center for Spatial Research
+     Madeeha Merchant (mym2107@columbia.edu)
+
+================================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title> Conflict Urbanism: Aleppo</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- optimize for search ... student name ? -->
+  <meta name="Algorithmic Imaginaries of Escape" content="Algorithmic Imaginaries of Escape | As the situation in Syria has shifted over the course of the civil war from government-sponsored violence against civilians protesting in cities like Homs to the current picture of a global refugee crisis now pushing on the borders of Europe, critical attention has drifted along extended avenues of escape and humanitarian resources have organized around the already displaced. This case study concerns the immediate possibilities of flight from a seemingly depopulated city of Aleppo, now a decisive front of the ongoing conflict.">
+  <meta name="Gabrielle Printz" content="Gabrielle Printz | Gabrielle is a post-graduate researcher at Columbia University GSAPP studying Critical, Curatorial & Conceptual Practices. ">
+    
+  <!-- boostrap - TODO: use local for performance -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/c28915cb-7a1f-477c-9084-e9e755ede452.css"/>
+
+  <!-- TODO - optimize and consolidate files -->
+  <link href='css/conflict_main.css' rel='stylesheet' />
+  <link href='css/conflict_course.css' rel='stylesheet' />
+
+ <style>
+  body {
+    font-family: Arial, sans;
+  }
+
+  #img-google {
+    background-size: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 245px;
+    background-image: url('img/googleimageresults.jpg');
+  }
+
+  #img-google:hover {
+    background-image: url('img/googleimageresults-hover-01.png');
+  }
+
+</style>
+
+</head>
+
+<body>
+  <div class="container main">
+    <div class="row top-row">
+      <div class="col-md-12">
+        <h5><a href="../../index.html">Conflict Urbanism Aleppo Seminar</a></h5>
+        <h5>Case Study | Algorithmic Imaginaries of Escape</h5>
+        <div class="img-padding">
+          <img src="img/Header_escape-01.png" class="img-responsive" />
+        </div>
+      </div>
+    </div>
+
+<div class="row">
+  <!-- menu -->
+  <div class="col-md-3 scrollspy">
+    <div id="sticky-menu ">
+      <br/>
+      <ul id="nav" class="nav c4sr-nav" data-spy="affix">
+        <li><a href="#Text1">• Escaping Urban <br/>&ensp;&thinsp;Conflict</a></li>
+        <li><a href="#Text2">• Imaging Refugee<br/>&ensp;&thinsp;Flight</a></li>
+        <li><a href="#Text3">• Routing out of Aleppo</a></li>
+        <li><a href="#Text4">• avoidConflict</a></li>
+        <li><a href="#Text5">• Paths through<br/>&ensp;&thinsp;VDC Data</a></li>
+        <li><a href="#Text6">• Extending Simulated<br/>&ensp;&thinsp;Escape</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- main -->
+<div class="col-md-6 body-text">
+<br/>
+<h5 id="Text1">Escaping Urban Conflict</h5><br/>
+
+<div class="paragraph">As the situation in Syria has shifted over the course of the civil war from government-sponsored violence against civilians protesting in cities like Homs to the current picture of a global refugee crisis now pushing on the borders of Europe, critical attention has drifted along extended avenues of escape and humanitarian resources have organized around the already displaced.</div><br/>
+
+<div class="paragraph">This case study concerns the immediate possibilities of flight from a seemingly depopulated city of Aleppo, now a decisive front of the ongoing conflict.</div><br/>
+
+<h5 id="Text2">Imaging Refugee Flight</h5><br/>
+
+<div class="paragraph">This project starts from a reading of the accumulated image of the “refugee journey.” Entering those exact terms into Google images, what appears are people who are removed from the origin of violence, who have already made it across border or to access points on a border that may or may not admit them.</div><br/>
+
+<div id="img-google"></div>
+<p><font size="2" >Only two of the first 54 image results are in Syria, and those are two towns on the Turkish border.</font></p><br/>
+
+<iframe width='100%' height='560px' frameBorder='0' src='google-escape.html'></iframe>
+
+<div class="paragraph">We can also turn to some of the more widely circulated narratives of flight from Syria. In these accounts, the route toward asylum truncates the retelling of the journey, such that its beginning--the origin of flight--is often not in Syria.</div><br/>
+
+<img src="img/media-routes.png" width="100%" /><br/><br/>
+
+<div class="paragraph"> BBC News, VICE News, and The Independent have all published stories that describe a long arc of travel, beginning in sites already removed from the immediate threat of the civil war, with the exception of "Ten Borders," a piece from the New Yorker.<div class="footnote footnote-1">1</div></div><br/>
+
+<img src="img/google-route-damascus.png" width="100%" /><br/><br/>
+
+<div class="paragraph">In that account, a law student at Damascus University--Ghalib--was facing conscription at the end of his studies in 2012. He describes a drive across the border from Damascus to Lebanon to procure an Italian passport to fly from Beirut to Europe. He was caught, sent back to Syria and left again from Damascus by flying to Istanbul, on one of the last commercial flights to leave the city.</div><br/>
+
+<div class="paragraph">For some reason, Google cannot produce the waypoints for his initial trip into Lebanon four years ago, despite the roads connecting Damascus and this small border town. Instead the routing results show this trajectory as a straight line from Damascus, a smooth vector out of conflict, resembling his ultimate and successful escape by plane.</div><br/>
+
+<img src="img/google-route-independent.png" width="100%" /><br/><br/>
+
+<div class="paragraph">Other articles have attempted to map the narratives of the perilous refugee journey. One published in The Independent, and researched by the International Rescue Coalition, depicts a two-month long route to Germany on the Google Maps platform.<div class="footnote footnote-2">2</div> And while the map shows Aleppo as the initial point of departure, the accompanying text leaves from Greece. Here too the paths between the various stops are simple vectors that do not describe the logistics or experience of this kind of travel.</div><br/>
+
+<h5 id="Text3">Routing out of Aleppo with the Google Maps API</h5><br/>
+
+<div class="paragraph">Google appears to be the preferred platform to catalog the "facts" of refugee flight. And it continues to produce imaginaries of possible movement even now, when the UNHCR reports that there is "no legal route out" of Syria. Due to the sustained damage of shelling, barrel bombs, air strikes, as well as the shifting control over territory in and around the city by various forces, Aleppo is not navigable in the way that Google suggests.</div><br/>
+
+<div class="paragraph">Still, the maps API will conjure driving directions from an position in east Aleppo to a site of reception at the northern Turkish border. While this trip appears to take just over an hour, google warns you in the fine print that "these directions are for planning purposes only. You may find that construction projects, traffic, weather, and other events may cause conditions to differ from the map results, and you should plan your trip accordingly. You must obey all signs and notices regarding your route." But as recent satellite imagery reveals a remarkable absence of cars in Aleppo satellites images, it's unlikley that vehicular transport remains an option for flight.</div><br/>
+
+<iframe width='100%' height='550px' frameBorder='0' src='draggabledirections_embed.html'></iframe>
+
+The trip is between 11 and 12 hours walking, along those same motorways.<br>
+• Assuming you are able bodied.<br>
+• Assuming you are walking on even and unobstructed ground.<br>
+• Assuming you won't be held up or stopped.<br/><br/>
+
+<h5 id="Text4">avoidConflict</h5><br/>
+
+<div class="paragraph">Several years into Syria's civil war, Google Maps continues to support an imaginary of efficient transport by foot or by car on   streets that are to Google not only unnamed, but unaffected by obstacles of war: a category that is materially and experientially   distinct from otherwise accounted-‐for variables like construction or traffic, but still translatable to the language of the  algorithm (as in, to avoid).</div><br/>
+
+<iframe width='100%' height='500px' frameBorder='0' src='googlejs-excerpt.html'></iframe><br/><br/>
+
+<div class="paragraph">Identifying a possible site of intervention in this imaginary of movement enabled by Google's algorithmic path, this project redeploys methods of remote route planning and attempts to see both desired and available lines of flight: from points within Aleppo-under-seige to the most immediate sites of reception or relative safety outside the city or at the Turkish border. How might the mechanisms that elicit potential movement--those which are designed to provide the path of least resistance from point A to point B--better engage with the realities of war and not simply the efficiency, but the necessity of flight?</div><br/>
+
+<div class="paragraph">The journey begins at an intersection in the Karm al-Myassar district of East Aleppo, one of the most severely damaged residential neighborhoods in the city. And it routes first to Azaz Refugee camp—one of the three UNHCR camps in Syria, which is located at one of the two remaining crossings into Turkey.  How does this algorithmic path reorganize in relation to zones of increased risk, as we might understood it from data recording barrel bombs over a period of time, or the shifting control over territories of the city which include routes out? How does the timeline of flight on foot adjust for these events?</div><br/><br/>
+
+<h5 id="Text5">Paths through VDC Data<br>Identifying Territories of Risk</h5><br/>
+
+<iframe width='100%' height='570px' frameBorder='0' src='routing-mapbox-embed.html'></iframe></br></br>
+
+<div class="paragraph">This map shows geolocated death records archived by the Violations Documentation Center in Syria for a period of three months immediately following the beginning of Russian airstrikes in Syria: September 30, 2015 to December 30, 2015. The distribution shows coordinated destruction along major roads out of Aleppo, events recorded by the VDC attributed to warplane strikes.<div class="footnote footnote-3">3</div></div><br/>
+
+<div class="paragraph">Sites that suggest potential, immediate destinations for those fleeing urban Aleppo are recognized refugee camps and settlements for the internally displaced, most of them distributed along Syria's borders with Turkey, Lebanon, and Jordan. Those locations, along with a current collection active--although not necessarily "open"--border crossings, were datasets collected from the Humanitarian Data Exchange.<div class="footnote footnote-4">4</div></div></br>
+
+<iframe width='100%' height='520px' frameBorder='0' src='routing-mapbox-directions-embed.html'></iframe><br/><br/>
+
+<div class="paragraph">Click the map to reroute for a new destination, or drag the calcuated path to established new waypoints around densities of violence.</div><br/><br/>
+
+<iframe width='100%' height='550px' frameBorder='0' src='routing-mapbox-routes-embed.html'></iframe><br/><br/>
+
+<div class="paragraph">And here are three potential paths to coincide with three, month-long periods of archived violations.</div><br/><br/>
+
+<h5 id="Text6">Extending Simulated Escape, Off-Ground Manuevers</h5></br>
+
+This last visualization attempts to push the algorithmic imaginary of flight to an extreme resolution. Waypoints from a route generated by the Mapbox GL JS Directions API are collected with their headings to construct a simulation of escape: smooth movements through this striated space of war.<br/><br/>
+<iframe width='100%' height='470px' frameBorder='0' src='routing-mapbox-routes-maneuver-embed.html'></iframe>
+
+<hr>
+<p>Produced by <b>Gabrielle Printz</b>, for the Conflict Urbanism: Aleppo seminar at Columbia University during Spring 2016. See all student work
+<a href="file:///Users/sidlws3/Google%20Drive/Conflict%20Urbanism%20Aleppo%20Shared/Seminar/index.html" target="_top" ><u>here</u></a>.</p>
+
+
+<br/><br/><br/>
+</div>
+
+<!-- footnotes -->
+<div class="col-md-3">
+  <div class="footnotes">
+   
+    <div class="footnote-ref footnote-ref-1"><sup>1</sup> The New Yorker, <a href= "http://www.newyorker.com/magazine/2015/10/26/ten-borders"> “Ten Borders: one refugee's epic escape from Syria"</a> October 26, 2015 </div>
+    
+    <div class="footnote-ref footnote-ref-2"><sup>2</sup> The Independent, <a href= "http://www.independent.co.uk/news/world/europe/held-at-gunpoint-by-gangsters-and-beaten-up-by-police-a-refugees-harrowing-story-of-his-danger-10474603.html"> “Held at gunpoint by gangsters and beaten up by police: A refugee's harrowing story of his danger-filled journey to Europe ”</a> August 27, 2015 </div>
+    
+    <div class="footnote-ref footnote-ref-3"><sup>3</sup> Violations Documentation Center in Syria, <a href= "http://www.vdc-sy.info/index.php/en/martyrs/1/c29ydGJ5PWEua2lsbGVkX2RhdGV8c29ydGRpcj1ERVNDfGFwcHJvdmVkPXZpc2libGV8ZXh0cmFkaXNwbGF5PTB8c3RhdHVzPTF8cHJvdmluY2U9NnxzdGFydERhdGU9MjAxNS0wOS0zMHxlbmREYXRlPTIwMTUtMTItMzB8"> “Records for 762 civilian martyrs from”</a> September 30-December 20, 2015</div>
+   
+    <div class="footnote-ref footnote-ref-4"><sup>4</sup> Humanitarian Data Exchange, <a href= "https://data.hdx.rwlabs.org/dataset/syria-border-crossings"> “Syria Border Crossings dataset compiled by the US State Department Humanitarian Information Unit”</a> June 2015 </div>
+
+  </div>
+</div>
+
+</div>
+<!-- end row -->        
+
+  <div class="row red bottom-line">
+    <div class="col-sm-12">
+      <h5><center> Center for Spatial Research, Columbia University</center></h5>
+    </div>
+  </div>
+
+</div>
+
+<!-- TODO optimize this -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+
+<!-- TODO optimize, minify inline -->
+<script>
+$(document).ready(function() {
+
+  // bootstrap affix menu
+  $('#nav').affix({
+    offset: {
+      top: $('#nav').offset().top
+    }
+  });
+
+  // footnote logic
+  $('.footnote').each(function() {
+    /*
+    var f = $(this).attr('class').split(" ")[1];
+    var num = f.split("-")[1];
+    var top = $('.' + f).position().top - 10;
+
+    var num_c = num - 1;
+    var offset = num_c * 88;
+    var top_n = top - offset;
+    
+    // align footnote to position
+    $('.footnote-ref-' + num).css({
+      top: top_n
+    });
+    var final_p = $('.footnote-ref-' + num).position().top;
+    */
+
+
+  });
+
+  // if window small then
+  if ($("ul.c4sr-nav").css("display") == "none" ){
+        $('.footnote-ref').each(function() {
+          $(this).css({
+            'top': 0,
+            'margin-bottom': '10px'
+          });
+        });
+  }
+
+
+});
+</script>
+</body>
+</html>

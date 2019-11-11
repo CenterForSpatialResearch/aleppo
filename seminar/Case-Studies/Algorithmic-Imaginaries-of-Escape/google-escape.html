@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Google Imaging Escape</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+
+<body>
+	<style>
+
+	.mapcontainer {
+	width:100%;
+	height:540px;
+	}
+
+	#map {
+	height: 500px;
+	width: 100%;
+	}
+
+	.mapboxgl-popup {
+	max-width: 200px;
+	font: 10px/14px Arial, Helvetica, sans-serif;
+	color: #222;
+	opacity: .8;
+	text-transform: uppercase;
+	}
+
+    .leaflet-top .leaflet-control-zoom {
+    top:20px;
+    }
+
+</style>
+	<div class="mapcontainer">
+	<div id="map"></div>
+
+	<script>
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZ2FwMjEzMyIsImEiOiJjaWsxZWRpNmEwMzdydW1tMGl6bG12bTIxIn0.zDBM2p_B7yeQK3Z9Z0Piaw';
+
+	var map = new mapboxgl.Map({
+		container: 'map',
+    	style: 'mapbox://styles/gap2133/cilimhgy800dh9gm3vudqb8y6',
+    	center: [31.252741,40.066099], //istanbul 
+    	zoom: 3.6,
+        attributionControl: false
+    });
+
+
+map.scrollZoom.disable();
+
+	map.on('style.load', function () {
+
+		map.addSource('google-markers', {
+			'type': 'geojson',
+			'data': {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"id":"marker-imgqolaca","title":"Sahela Border Crossing, Iraq","description":"","marker-size":"medium","marker-color":"#ff9411","marker-symbol":""},"geometry":{"coordinates":[42.369069,37.057998],"type":"Point"},"id":"27c5ad2b6966d2102940f9668d75299f"},{"type":"Feature","properties":{"id":"marker-imgq3nf15","title":"Lesbos, Greece","description":"","marker-size":"medium","marker-color":"#63b6e5","marker-symbol":""},"geometry":{"coordinates":[26.554212,39.104355],"type":"Point"},"id":"33d8928e1cb036d2f1def5975b014bd9"},{"type":"Feature","properties":{"id":"marker-imgpzzh44","title":"Piraeus, Greece","description":"","marker-size":"medium","marker-color":"#a3e46b","marker-symbol":""},"geometry":{"coordinates":[23.646912,37.943926],"type":"Point"},"id":"35b452f89be4805fe22ce77f817ccca0"},{"type":"Feature","properties":{"id":"marker-imgqx4ihd","title":"Shaqwala, Iraq","description":"","marker-size":"medium","marker-color":"#f079aa","marker-symbol":""},"geometry":{"coordinates":[44.333395,36.399627],"type":"Point"},"id":"3cedc280ae098c61c4994995d0859aa9"},{"type":"Feature","properties":{"id":"marker-imgr2emqe","title":"Akcakale, Turkey","description":"","marker-size":"medium","marker-color":"#e609e5","marker-symbol":""},"geometry":{"coordinates":[38.947048,36.717765],"type":"Point"},"id":"4bf654ce7ed2139732b5634c2362eff4"},{"type":"Feature","properties":{"id":"marker-imgqteunc","title":"Biscke, Hungary","description":"","marker-size":"medium","marker-color":"#540ab1","marker-symbol":""},"geometry":{"coordinates":[18.635902,47.490673],"type":"Point"},"id":"57d9842f448945df4e8c28a5d486eef4"},{"type":"Feature","properties":{"id":"marker-imgq8jxu7","title":"Zaatari Camp, Jordan","description":"","marker-size":"medium","marker-color":"#f86767","marker-symbol":""},"geometry":{"coordinates":[36.328096,32.293481],"type":"Point"},"id":"5be543061078ded837f1ccab9573a7a4"},{"type":"Feature","properties":{"id":"marker-imgq5f1d6","title":"Idomeni, Greece","description":"","marker-size":"medium","marker-color":"#677da7","marker-symbol":""},"geometry":{"coordinates":[22.51119,41.122184],"type":"Point"},"id":"690d8babf1055812682c127549b52594"},{"type":"Feature","properties":{"id":"marker-imgqdz0m8","title":"Dahuk, Iraq","description":"","marker-size":"medium","marker-color":"#d38534","marker-symbol":""},"geometry":{"coordinates":[42.992591,36.855123],"type":"Point"},"id":"abb3eb9f524d1fbd1b6de118522836af"},{"type":"Feature","properties":{"id":"marker-imgqs3yrb","title":"Roszke, Hungary","description":"","marker-size":"medium","marker-color":"#1087bf","marker-symbol":""},"geometry":{"coordinates":[20.035672,46.187347],"type":"Point"},"id":"aefdb6bb9e43128ece6994801dc1ab5c"},{"type":"Feature","properties":{"id":"marker-imgpyarv2","title":"Suruc, Turkey","description":"","marker-size":"medium","marker-color":"#c091e6","marker-symbol":""},"geometry":{"coordinates":[38.424339,36.975232],"type":"Point"},"id":"c9f3de732f53920187dc92bf4987a06a"},{"type":"Feature","properties":{"id":"marker-imgpzcq33","title":"Kos, Greece","description":"","marker-size":"medium","marker-color":"#7ec9b1","marker-symbol":""},"geometry":{"coordinates":[27.286562,36.894139],"type":"Point"},"id":"d456864f985db4eeecd852c530244c7a"},{"type":"Feature","properties":{"id":"marker-imgpwkjl1","title":"Beirut, Lebanon","description":"","marker-size":"medium","marker-color":"#fa946e","marker-symbol":""},"geometry":{"coordinates":[35.478587,33.89596],"type":"Point"},"id":"f1baba0700850b827c7bafae9861b792"},{"type":"Feature","properties":{"id":"marker-imgpua2y0","title":"Kobani, Turkey","description":"","marker-size":"medium","marker-color":"#d27591","marker-symbol":""},"geometry":{"coordinates":[38.349409,36.899511],"type":"Point"},"id":"f34719e5ccd8a43f5a5f563657f8ca3b"}],"id":"gap2133.pibdc528"}
+		});
+
+		map.addSource('out-of-aleppo', {
+			'type':'geojson',
+			'data': {'type': 'FeatureCollection', 'features': [
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[42.369069,37.057998]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[26.554212,39.104355]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[23.646912,37.943926]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[44.333395,36.399627]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[38.947048,36.717765]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[18.635902,47.490673]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[36.328096,32.293481]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[22.51119,41.122184]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[42.992591,36.855123]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[20.035672,46.187347]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[38.424339,36.975232]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[27.286562,36.894139]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[35.478587,33.89596]
+				]}},
+				{'type':'Feature', 'geometry': {'type': 'LineString', 'coordinates': [
+					[37.180591,36.198007],[38.349409,36.899511]
+				]}},
+			]}
+		});
+		
+		map.addLayer({
+			'id':'out-of-aleppo',
+			'type':'line',
+			'source':'out-of-aleppo',
+			'paint': {
+				'line-color': '#fff',
+				'line-width': 1,
+				'line-opacity': .8
+			}
+		});
+
+		map.addLayer({
+			"id": "google-markers",
+			"type": "circle",
+			"source": "google-markers",
+			"paint": {
+				"circle-color": '#4cd8d5',
+				"circle-radius": 4,
+				"circle-opacity": 1
+			}
+		});
+});
+
+	//hover functions
+
+    var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+	});
+
+
+	map.on('mousemove', function(e) {
+    	var features = map.queryRenderedFeatures(e.point, {layers: ['google-markers']});
+ 
+    	map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+    	if (!features.length) {
+        	popup.remove();
+        	return;
+    	}
+
+    	var feature = features[0];
+
+    popup.setLngLat(feature.geometry.coordinates)
+        .setHTML(feature.properties.title)
+        .addTo(map);
+
+	});
+
+map.addControl(new mapboxgl.Navigation({position: 'top-right'}));
+
+
+	</script>
+
+	</div>
+
+</body>
+</html>

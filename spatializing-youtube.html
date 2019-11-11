@@ -1,0 +1,164 @@
+<!-- Conflict Urbanism: Aleppo
+     Center for Spatial Research
+     Madeeha Merchant (mym2107@columbia.edu)
+
+================================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title> Conflict Urbanism: Aleppo</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- optimize for search ... student name ? -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- boostrap - TODO: use local for performance -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/c28915cb-7a1f-477c-9084-e9e755ede452.css"/>
+
+  <!-- TODO - optimize and consolidate files -->
+  <link href='css/conflict_main.css' rel='stylesheet' />
+  <link href='css/conflict_course.css' rel='stylesheet' />
+  <link href='css/framing-footnotes.css' rel='stylesheet' />
+  <link href='css/csr.css' rel='stylesheet'/>
+</head>
+
+<body>
+  <div class="container main">
+    <div class="row top-row">
+      <div class="col-md-12">
+        <h5><a href="index.html">Conflict Urbanism Aleppo</a></h5>
+        <h5>Spatializing the YouTube War</h5>
+        <div class="img-padding">
+          <img src="img/CSR_YouTube_01.png" class="img-responsive" />
+
+        </div>
+      </div>
+    </div>
+
+<div class="row">
+  <!-- menu -->
+  <div class="col-md-3 scrollspy">
+    <div id="sticky-menu ">
+      <ul id="nav" class="nav c4sr-nav" data-spy="affix">
+        <li><a href="#intro"><img src="img/dot-1.png" />Introduction</a></li>
+        <li><a href="#archive"><img src="img/dot-1.png" />YouTube as Archive</a></li>
+        <li><a href="#channels"><img src="img/dot-1.png" />Activist Channels</a></li>
+        <li><a href="#data"><img src="img/dot-1.png" />Building the Dataset</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- main -->
+  <div class="col-md-6 body-text">
+     <h5 id="intro">Introduction</h5>
+        The civil war in Syria has shown how profoundly the rise of cellphones with video-cameras, as well as online video-hosting and emergent citizen journalism, has changed the landscape of war documentation. YouTube has become one of the largest sources (and archives) of information about events on the ground in Syria: since January 2012 over a million videos of the conflict there have been uploaded, with hundreds of millions of views to date. Major news agencies have come to rely on YouTube as a primary source for their reporting, and human rights organizations often cite videos as part of their advocacy and documentation efforts. This independently reported footage has created a new powerful archive, but opens up crucial questions of credibility, verification, and bias. As with all data, every video comes to us bearing the traces of the situation and intentions that motivated its production. This does not disqualify it – quite to the contrary – but it does demand that we approach everything critically and carefully.<br/><br/>We set out to investigate YouTube as archive of the Syrian uprising and to develop a method for organizing that archive spatially. We used the frameworks that we had developed for the Conflict Urbanism Aleppo interactive map, together with a naming convention used by Syrian civic media organizations, in order to sort and geolocate YouTube videos from multiple sources. We then produced a searchable interactive interface for three of the most highly cited YouTube channels, the Halab News Network, the Aleppo Media Center, and the Syrian Civil Defense. We encourage journalists, researchers, and others to use this specifically spatial tool in sorting and searching through the YouTube dataset.<br/><br/><iframe width='100%' height='700px' frameBorder='0' scrolling="no" src= "spatializing-youtube/index.html" name="iframe_x"></iframe><div class="caption"><br/><a href="spatializing-youtube/index.html" target="_blank">Map best viewed with Chrome. Clink here to view the map in a new window.</a> </div><br/>This interactive map shows videos posted on the Halab News Network (HNN) YouTube channel that have been tagged to the neighborhood that is mentioned in each video’s title. The tabs along the top of the window open versions of the same map for the Aleppo Media Center, and the Syrian Civil Defense YouTube channels.<br/><br/>The size of each circle is proportional to the number of videos from the channel selected that mention that neighborhood in their title. The majority of these geolocated videos depict violence in rebel-held territories. We discuss each of these channels in greater detail below.<br/><br/>
+
+    <h5 id="archive">YouTube as Archive</h5>
+        There have been several other projects that treat YouTube as a valuable archive of the conflict in Syria. <br/><br/>
+        Human Rights Watch’s 2013 report, “Death from the Skies: Deliberate and Indiscriminate Air Strikes on Civilians,” supplements on-the-ground interviews with YouTube videos to provide evidence for violations of International Humanitarian Law.<div class="footnote footnote-ref-1">1</div> HRW has correlated YouTube videos of barrel bomb attacks with satellite images of tangible destruction. <br/><br/>The Conflict Resolution Program of the Carter Center, an Atlanta-based NGO, has been analyzing data from multiple social media platforms— including a detailed analysis of YouTube content—as part of their Syria Conflict Mapping Project. The project cross-references information from multiple media sources and has provided a publicly accessible map of conflict events available to the public. <div class="footnote fottnote-ref-2">2</div><br/><br/>The Syrian Archive, a joint initiative of several human rights organizations, has also constructed a database of YouTube videos from the Syrian conflict. Their project focuses on preserving videos and metadata of alleged human rights abuses. The Archive’s website includes a map of manually geo-located videos and available metadata.<div class="footnote footnote-ref-3">3</div><br/><br/>All of these projects grapple with two core challenges of using YouTube as an archive of the war. First, there is the critical challenge of verifying the accuracy of individual videos: what happened, when, where, and by whom was it recorded? Second, we often lack any auxiliary information, or metadata, for video that is uploaded to social media platforms. YouTube metadata always includes title, description, channel, and date of upload. However, the platform does not require users to enter information about the geographic location of filming or uploading, and there is no automated way of determining the date the footage was captured.<div class="footnote footnote-ref-4">4</div><br/><br/>The controversy around videos documenting chemical weapon attacks in the Damascus suburb of Ghouta, where users were accused of uploading fabricated videos, is illustrative of the crucial importance of verification. The controversy was highly political: pro-government groups accused anti-government YouTube users of posting videos in an effort to encourage Western governments to intervene in Syria.<div class="footnote footnote-ref-5">5</div>Rightly, the question of <i>who</i> is posting <i>what</i> videos is relevant to identifying bias that may affect the validity of the claims being made through the images. At the same time, challenges to the accuracy of YouTube footage have served as a weapon for the regime to undermine legitimate documentation efforts by its opponents.<br/><br/>Here we have used YouTube to build a spatialized archive of videos of the war in Aleppo. While YouTube metadata does not include a location parameter, a number of established YouTube channels run by grassroots activists and journalists display a kind of “archival consciousness” in that they note the names of neighborhoods, streets, or locations shown in their footage in the titles of videos when they are uploaded. This critical fact has allowed us to develop methods to analyze these video archives spatially and to begin to examine where violence and destruction is occurring. Analyzing patterns in video uploads across time and space opens up the potential to discover how political decisions or material circumstances might have had an effect on what is documented, how events are represented, and conversely what is omitted from the YouTube archive.<br/><br/>
+
+    <h5 id="channels">Activist Channels</h5>
+        We chose to focus our analysis on a selection of Aleppo-based YouTube channels that have frequently been cited by major English and Arabic language news organizations, such as <i>The New York Times</i> and <i>Al Jazeera</i>, and have been used in reporting by independent NGOs such as Human Rights Watch. We have relied on the expertise of these organizations as an initial measure of the authenticity and trustworthiness of our selected YouTube channels. The three channels we use are: Halab News Network, Aleppo Media Center, Syria Civil Defense. <br/><br/>We analyzed the metadata for all of the videos posted on these three channels. We then took this metadata analysis and created interactive maps that spatialize the videos posted. Each channel has specific motivations, and as the maps and graphs below show, the video uploads are often clustered in a specific set of neighborhoods and are uploaded with varying frequency over the duration of the war.<br/><br/>
+        <h5><a href="https://www.youtube.com/channel/UCesBL01BgmHzdp1GZT2ltJw">Halab News Network (H.N.N)</a></h5><img src="img/Channel_BarGraphs_-12.png" class="img-responsive"/><div class="caption"><br/>Timeline of video uploads by the Halab News Network YouTube channel.</div><br/>The Halab News Network was founded 2011. The channel’s website cites that it was founded in response to the beginning of the uprisings in Syria. The network has official correspondents which cover the city of Aleppo, including its government-held areas. Our interactive map features videos from the Halab News Network in part because the network has been uploading videos for such a long period and covers a large area of the formerly rebel-held portions of the city.<br/><br/><img src="img/20170224_HNN.png" class="img-responsive"/><div class="caption"><br/>Videos from the Halab News Network geolocated to the neighborhoods of Aleppo using information contained in each video title.</div><br/>The Halab News Network shows a wide distribution of videos across the city, including the city center and government-held Western side of the city. The Eastern half of the city -- in particular the Northeastern neighborhoods of ash-Sha’ar (الشعار), Hanano (هنانو), and Ayn at-Tal (عين التينة) – is the best-documented.<br/><br/>
+        <h5><a href="https://www.youtube.com/user/AleppoMediaCenter">Aleppo Media Center</a></h5><img src="img/Channel_BarGraphs_-08.png" class="img-responsive"/><div class="caption"><br/>Timeline of video uploads by the Aleppo Media Center YouTube channel.</div><br/>The Aleppo Media Center (AMC) is a more formal news outlet and predates the conflict in Syria. As such the channel covers a broader range of topics – such as politics and culture – than the other channels which primarily aim at documenting violence in Aleppo.<br/><br/><img src="img/20170224_AMC.png" class="img-responsive"/><div class="caption"><br/>Videos posted by the Aleppo Media Center geolocated to the neighborhoods of Aleppo using information contained in each video title.</div><br/>TThe videos published by the Aleppo Media Center roughly follow the formerly rebel-held Eastern side of the city, with a small number of videos from the central and Western areas. The highest number of videos is in the neighborhood of ash-Sha’ar (الشعار). Particular spots include ash-Sha’ar (الشعار), coverage of which is shared with the Syrian Civil Defense. Another notable concentration are two neighborhoods in the Southwest, Bustan al-Qaser (بستان القصر) and al-Fardos (الفردوس).<br/><br/><h5><a href="https://www.youtube.com/channel/UCWMdFObWuJgzYJ4sUm4dHPA">Syrian Civil Defense</a></h5><img src="img/Channel_BarGraphs_-06.png" class="img-responsive"/><div class="caption"><br/>Timeline of video uploads by the Syrian Civil Defense YouTube channel.</div><br/>The Syrian Civil Defense (SCD) is a volunteer run organization that sends teams to rescue victims of bombings and shelling. They also run a YouTube channel where they post videos documenting their recovery efforts. They have been the subject of a recent Netflix Documentary.<div class="footnote footnote-ref-6">6</div><br/><br/><img src="img/20170224_SyrianCivilDefense.png" class="img-responsive"/><div class="caption"><br/>Videos posted by the Syrian Civil Defense geolocated to the neighborhoods of Aleppo using information contained in each video title.</div><br/>The Syrian Civil Defense, also known as the White Helmets, have uploaded videos primarily in the formerly rebel-held Eastern and Southern areas of Aleppo. Only the Western area of ash-Shuhada’ (الشهداء) falls outside of this trend. For both the Syrian Civil Defense and the Halab News Network, ash-Sha’ar (الشعار) is the neighborhood with the most geolocated videos.<br/><br/>
+    <h5 id="data">Building the Dataset</h5>
+        We have used open source tools to mine, spatialize, and analyze selected YouTube channels. Our method is explained in broad strokes below. The full code for our interactive map is available via GitHub<a href="https://github.com/CenterForSpatialResearch/Spatializing-YouTube-Aleppo" target="_blank">here.</a><div class="footnote footnote-ref-7">7</div><br/><br/>
+        The core process for our analysis involved downloading the metadata associated with each video uploaded to our selected YouTube channels, processing that data, and matching the video titles (in Arabic) with a list of neighborhood and major landmark names. We then visualized this information using Grasshopper to produce the static maps and charts, and JavaScript and MapBox to produce the interactive online map.<br/><br/>We used <a href="https://developers.google.com/apis-explorer/?hl=en_US#p/youtube/v3/">YouTube’s Application Programming Interface (API)</a> to collect the metadata associated with each video on our selected channels. This API is well documented, public, and allowed for a depth of functionality when pulling information from the videos on the selected channels. The API provided for access to videos within a channel as well as metadata associated with videos within a channel. The video metadata appears in the form of a JSON “snippet.”<br/><br/>Taking these JSON elements for each video uploaded by the channels we searched the video titles for matches with the names of Aleppo neighborhoods. For each of these neighborhoods, we searched for the main name, in Arabic, as well as common spelling variations, and the names of prominent landmarks within each geographic area. Our full list of Aleppo’s neighborhoods and the associated search terms is available for download<a href="/data/CSR_AleppoNeighborhoods.xls">here</a>.<br/><br/>Videos that contained any identical matches to these strings of text were marked by our algorithm as being associated with that neighborhood. This initial list of landmarks and associated spellings was designed in correspondence with the naming conventions of the Halab News Network channel. The channel entries were reviewed individually to identify trends and conventional naming practices in the dataset. Sub-neighborhood names, landmarks, street names, and infrastructure (roundabouts and bridges) were located by looking at more informal sources of geographic information like Wikimapia and at maps produced by local news outlets.  The naming conventions of the channel, including sub-neighborhoods and landmarks, were added to the list of possible search terms that was used across all channels. <br/><br/>It was important that the interface not only show quantitative trends in the numbers of videos posted by region, but also the qualitative information from the videos themselves. By displaying videos within each neighborhood chronologically, the footage of the conflict can be read narratively. When a neighborhood marker is clicked, videos from this neighborhood are displayed chronologically so that the videos of this area can be explored in greater depth. Using the stored video snippets, video thumbnails from all videos bound to a specific neighborhood are sorted based on the “published date” (displayed with the most recent at the top) and listed on the right margin of the page. Each video thumbnail is linked to the original video YouTube site to allow for further research.<br/><br/>The HNN channel hosts over 4,000 videos, and new videos continued to be uploaded through the middle of December. It was thus necessary to manage the number of queries to the YouTube API in order to reduce the loading time for multiple video queries and to meet YouTube’s limitations on how many queries can be processed for a single user. In order to manage this information, video snippets from the channel were downloaded and stored on a local server. This allows the majority of videos to be cached locally, while new videos are queried directly from the YouTube API in a manageable quantity.<br/><br/>The map that has resulted from this work is a broad reading of the spatial patterns of YouTube video uploads in Aleppo. But it invites – and indeed demands – further exploration by journalists, students, researchers, and citizens to uncover and retell stories from Aleppo.<br/><br/>
+
+        Case Study Team: <br/>Nadine Fattaleh, Michael James Storm, Violet Whitney<br/><br/><br/>
+
+        <a class="btn btn-default btn-block c4sr-button c4sr-big-button" href="index.html">Return to Case Studies</a><br/><br/><br/>
+
+
+</div>
+
+
+<div class="col-md-3">
+  <div class="footnotes">
+
+    <div class="footnote-ref footnote-ref-1-f"><sup>1</sup><a href= "https://www.hrw.org/report/2013/04/10/death-skies/deliberate-and-indiscriminate-air-strikes-civilians"> Human Rights Watch. "Death from the Skies: Deliberate and Indiscriminate Air Strikes on Civilians. April 10, 2013.</a></div>
+
+    <div class="footnote-ref footnote-ref-2-f"><sup>2</sup> If users have enabled Google to access their location services this field sometimes is populated with data but this is rarely the case.</div>
+
+    <div class="footnote-ref footnote-ref-3-f"><sup>3</sup> <a href= "http://mediashift.org/2014/02/the-youtube-war-citizen-videos-revolutionize-human-rights-monitoring-in-syria/"> Christoph Koettl, “‘The YouTube War’: Citizen Videos Revolutionize Human Rights Monitoring in Syria”, Media Shift. February 18, 2014</a></div>
+
+
+  </div>
+</div>
+
+
+</div>
+<!-- end row -->
+
+  <div class="row red bottom-line">
+    <div class="col-sm-12">
+      <h5><center> Center for Spatial Research, Columbia University</center></h5>
+    </div>
+  </div>
+
+</div>
+
+<!-- TODO optimize this -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+
+<!-- TODO optimize, minify inline -->
+<script>
+$(document).ready(function() {
+
+  // bootstrap affix menu
+  $('#nav').affix({
+    offset: {
+      top: $('#nav').offset().top
+    }
+  });
+
+  // footnote logic
+  $('.footnote').each(function() {
+
+    /*
+    var f = $(this).attr('class').split(" ")[1];
+    var num = f.split("-")[1];
+    console.log(num);
+    var el = $('.' + f);
+
+    //var top = $('.' + f).position().top - 10;
+
+    console.log(el);
+    /*
+    var num_c = num - 1;
+    var offset = num_c * 88;
+    var top_n = top - offset;
+
+    // align footnote to position
+    $('.footnote-ref-' + num).css({
+      top: top_n
+    });
+    var final_p = $('.footnote-ref-' + num).position().top;
+    console.log(final_p);
+
+    */
+
+  });
+
+
+  // if window small then
+  if ($("ul.c4sr-nav").css("display") == "none" ){
+        $('.footnote-ref').each(function() {
+          $(this).css({
+            'top': 0,
+            'margin-bottom': '10px'
+          });
+        });
+  }
+
+
+});
+</script>
+</body>
+</html>

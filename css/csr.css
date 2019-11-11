@@ -1,0 +1,122 @@
+/* SCSS imports
+$c4sr-blue: rgb(40,170,225);
+$c4sr-yellow: rgb(255,255,130);
+*/
+body {
+	font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+}
+
+.row.c4sr-staff {
+	width: 100%;
+	margin-top: 0px;
+}
+
+.c4sr-more-bio {
+	display: inline;
+	margin-bottom: 1.4em;
+	cursor: pointer;
+}
+
+.c4sr-more-bio:hover {
+	display: inline;
+	color: blue;
+	margin-bottom: 1.4em;
+	cursor: pointer;
+}
+
+.c4sr-inline-bio {
+	display: inline;
+}
+
+.c4sr-current-staff-wrapper {
+	background: none;
+	width: 97%;
+	margin: auto;
+	margin-left: 20px;
+}
+
+.c4sr-staff-wrapper:nth-child(3n+1) {
+	clear: left;
+}
+
+.c4sr-staff-wrapper {
+	float: left;
+	width: 95.25%;
+	padding: 13px;
+}
+
+
+@media (min-width: 600px) {
+	/* Bigger-than-a-tablet rules go here. */
+	.c4sr-staff-wrapper {
+		width: 33%;
+	}
+}
+
+.c4sr-staff-title-wrapper {
+	font-size: 33px;
+	line-height: 1.2em;
+	position: absolute;
+	max-width: 290px;
+}
+
+.c4sr-staff-image-wrapper {
+	margin: 20px 0 .8em 0;
+}
+
+.row.c4sr-project-table.c4sr-publications {
+	padding: 20px 8px 20px 6px;
+}
+
+.row.c4sr-project-table.c4sr-publications.c4sr-grey-table {
+	color: red;
+	width: 101.5%;
+	margin-left: -6px;
+}
+
+.c4sr-more-bio {
+	border-bottom: 1px solid black;
+}
+
+a.c4sr-button {
+	width: 100%;
+	float: left;
+	border: 1px solid black;
+	background: none;
+	border-radius: 0;
+	font-size: 100%;
+	padding: 11px;
+	margin-bottom: 20px;
+}
+footer.c4sr-footer { 
+  font-size: 85%; padding:0 0 20px 0;
+  z-index: 999; background: #fff;
+  position: relative; border-top: none;
+  padding-top: 20px; line-height: 1.4em; top: 0px;
+  /*.container { width: 95%; border-top: 1px solid #000; }*/
+}
+
+footer.c4sr-footer.container {
+	width: 100%; border-top: 1px solid #000;; 
+}
+
+.c4sr-footer-id a { border: none; }
+
+footer {
+  .col-md-3 a { border: none; }
+  .cu-crown { margin-top: 20px }
+  .cu-crown img { width: 13%; height: auto; position: relative; top: 9px; }
+}
+
+/*
+footer.c4sr-footer {
+    font-size: 85%;
+    padding: 0 0 20px 0;
+    z-index: 999;
+    background: #fff;
+    position: relative;
+    top: -30px;
+    padding-top: 1.4em;
+    line-height: 1.4em;
+    border-top: 1px solid #000;*/

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Draggable directions</title>
+    <style>
+      body {
+        font-size: 10px;
+      }
+
+      .expand-nav {
+        font: 10px/14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: absolute;
+        top: 420px;
+        right: 10px;
+        z-index: 1;
+        border-radius: 3px;
+        margin-right: 5px;
+        color: #000;
+      }
+
+      .expand-nav:hover {
+        color: #444;
+      }
+
+      #directions-panel {
+        font-family: 'Roboto','sans-serif';
+        text-transform: uppercase;
+        line-height: 20px;
+      }
+
+      #directions-panel select, #directions-panel input {
+        font-size: 10px;
+      }
+
+      #directions-panel select {
+        width: 100%;
+      }
+
+      #directions-panel i {
+        font-size: 10px;
+      }
+
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+
+      #directions-panel {
+        width: 90%;
+        height: 80px;
+        float: left;
+      }
+
+      #total {
+        font-weight: 600;
+      }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="directions-panel">
+      <br/>
+      <p>The total distance of this trip is <span id="total"></span> which will presumably be taken on foot. These directions are for planning purposed only, and you may find that the route includes blocked roads, rubble, areas of live fire, and other non-navigable paths. Proceed at your own risk. Google accepts no liability for routes that imperile any and all users.
+    </div>
+    <a target="_blank" href="draggabledirections.html"><div class='expand-nav'>expand</div>
+
+    <script>
+
+
+function initMap() {
+
+
+  // map style on load
+  var styles = [
+  {
+    stylers: [
+    { saturation: -20 },
+    { gamma: 8.0},
+    { invert_lightness: true}
+    ]
+  },{
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+    { invert_lightness: true },
+    { visibility: "simplified"},
+    { weight: 0.5 },
+    { color: "#748eb2"}
+    ]
+  },{
+    featureType: "landscape.natural.terrain",
+    elementType: "geometry",
+    stylers: [
+    { visibility: "on"}
+    ]
+  },{
+    featureType: "poi.labels",
+    elementType: "labels",
+    stylers: [
+    { visibility: "simplified"},
+    { lightness: 100}
+    ]
+  },{
+    featureType: "road",
+    elementType: "labels",
+    stylers: [
+    { visibility: "off" }
+    ]
+  }
+  ];
+
+  var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Aleppo Roads"});
+
+  var mapOptions = {
+    zoom: 15,
+    center: {lat: 36.196121, lng: 37.1743117},
+    scrollwheel: false,
+    streetViewControl: false,
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.SATELLITE, 'map_style']
+    }
+  }
+
+var map = new google.maps.Map(document.getElementById('map'),
+  mapOptions);
+
+  //Associate the styled map with the MapTypeId and set it to display.
+  map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
+
+var directionsService = new google.maps.DirectionsService;
+var directionsDisplay = new google.maps.DirectionsRenderer({
+  draggable: true,
+  map: map,
+  //panel: document.getElementById('right-panel')
+});
+
+directionsDisplay.addListener('directions_changed', function() {
+  computeTotalDistance(directionsDisplay.getDirections());
+});
+
+
+//fabricate escape route from origin in conflict to possible destination in safety
+imagineRoute(
+  'كرم الطحان Syria', // كرم الميسر Karm al-Myassar
+  'السلامة Syria', // مخيم باب السلامة Azaz Camp
+  directionsService,
+  directionsDisplay);
+}
+
+function imagineRoute(origin, destination, service, display) {
+  service.route({
+    origin: origin,
+    destination: destination,
+
+    waypoints: [
+    {location: 'جسر الصاخور Syria', stopover: false},
+            // {lat:36.2131999, lng:37.1788786} جسر الصاخور Alsakhur Bridge
+            {location: 'حندرات Syria', stopover: false}
+            // {lat:36.2879566, lng:37.1478232}  حندرات Handarat
+            ],
+
+            travelMode: google.maps.TravelMode.WALKING,
+
+            avoidTolls: true
+            //avoidIsis: true
+            //avoidShellingSites: true
+            //avoidRubble: true
+
+        },
+
+        function(response, status) {
+          if (status === google.maps.DirectionsStatus.OK) {
+            display.setDirections(response);
+          } else {
+            alert('Could not display directions due to: ' + status);
+          }
+        });
+}
+
+      //calculate distance of re-routed path
+
+      function computeTotalDistance(result) {
+        var total = 0;
+        var myroute = result.routes[0];
+        for (var i = 0; i < myroute.legs.length; i++) {
+          total += myroute.legs[i].distance.value;
+        }
+        total = total / 1000;
+        document.getElementById('total').innerHTML = total + ' km';
+      }
+
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2leawRXCACm_1E3xPD1b-ErtPlM2FO5k&callback=initMap">
+    </script>
+
+  </body>
+</html>

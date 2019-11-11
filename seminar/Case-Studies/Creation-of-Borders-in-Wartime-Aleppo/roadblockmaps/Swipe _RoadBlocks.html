@@ -1,0 +1,83 @@
+<!-- Conflict Urbanism: Aleppo
+     Center for Spatial Research
+     Madeeha Merchant (mym2107@columbia.edu)
+
+================================================================= -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+
+<!-- ADD: Name to Appear on Tab --> 
+<title>Layers</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<style>
+.range {
+  position:absolute;
+  width:100%;
+  }
+.leaflet-top .leaflet-control-zoom {
+  top:20px;
+  }
+</style>
+
+<div id='map'></div>
+<input id='range' class='range' type='range' min='0' max='1.0' step='any' />
+
+<script>
+
+//This is my api!
+L.mapbox.accessToken = 'pk.eyJ1IjoiYW5jb3g0IiwiYSI6ImNpazFlZHRmejM5cHh2Z2x6bW1lMmplYWEifQ.yQq9MMfamoujplZQIptlcA';
+
+var map = L.mapbox.map('map');
+
+// ADD: Layer 1 : Here we add the Pencil Style we are using
+L.mapbox.tileLayer('mapbox.satellite').addTo(map);
+
+// ADD: Layer 2 : Here we add the Soviet Historical Map of Aleppo
+//var overlay = L.mapbox.tileLayer('c4sr.8a769a77,c4sr.6b61i4ek').addTo(map);               // this is the given code. it works well for me
+
+var overlay = L.mapbox.tileLayer('mapbox.satellite,sidl.3rf1kcn2').addTo(map);  //this does not work for me....
+
+//var overlay = L.mapbox.tileLayer('mydogiship.7spllx13').addTo(map);                       //This works for me but has a black box
+
+L.control.layers({ }, {
+    //Add the Historical Map Layer. You can add as many layers as you would like.
+    // If you would like the historical map to appear by default, at the end of the line, add '.addTo(map)'
+    //'Historical Map': L.mapbox.tileLayer('c4sr.0jsc3bj6').addTo(map)
+   '2014 Roadblocks': L.mapbox.tileLayer('ancox4.01i7ok8g')
+
+}).addTo(map);
+
+
+var range = document.getElementById('range');
+
+//Do NOT Change
+function clip() {
+  var nw = map.containerPointToLayerPoint([0, 0]),
+      se = map.containerPointToLayerPoint(map.getSize()),
+      clipX = nw.x + (se.x - nw.x) * range.value;
+
+  overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
+}
+
+range['oninput' in range ? 'oninput' : 'onchange'] = clip;
+map.on('move', clip);
+
+// ADD: Long, Lat and Zoom Level. The settings below zoom at Aleppo
+map.setView([36.21, 37.15], 14);
+
+
+clip();
+</script>
+</body>
+</html>

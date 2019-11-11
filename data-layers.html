@@ -1,0 +1,173 @@
+<!-- Conflict Urbanism: Aleppo
+     Center for Spatial Research
+     Madeeha Merchant (mym2107@columbia.edu)
+
+================================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title> Conflict Urbanism: Aleppo</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- optimize for search ... student name ? -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+    
+  <!-- boostrap - TODO: use local for performance -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/c28915cb-7a1f-477c-9084-e9e755ede452.css"/>
+
+  <!-- TODO - optimize and consolidate files -->
+  <link href='css/conflict_main.css' rel='stylesheet' />
+  <link href='css/conflict_course.css' rel='stylesheet' />
+  <link href='css/framing-footnotes.css' rel='stylesheet' />
+  <link href='css/csr.css' rel='stylesheet'/>
+</head>
+
+<body>
+  <div class="container main">
+    <div class="row top-row">
+      <div class="col-md-12">
+        <h5><a href="index.html">Conflict Urbanism Aleppo</a></h5>
+        <h5>The Data Layers</h5>
+        <div class="img-padding">
+          <img src="img/Aleppo_AerialSM_Header.jpg" class="img-responsive" />
+        </div>
+      </div>
+    </div>
+
+<div class="row">
+  <!-- menu -->
+  <div class="col-md-3 scrollspy">
+    <div id="sticky-menu ">
+      <ul id="nav" class="nav c4sr-nav" data-spy="affix">
+        <li><a href="#data"><img src="img/dot-1.png" />The Data Layers</a></li>
+        <li><a href="#satellite"><img src="img/dot-1.png" />Satellite View</a><li>
+        <li><a href="#neighborhood"><img src="img/dot-1.png" />Neighborhoods of Aleppo</a><li>
+        <li><a href="#osm"><img src="img/dot-1.png" />Open Street Maps</a><li>
+        <li><a href="#unosat"><img src="img/dot-1.png" />UNOSAT</a><li>
+        <li><a href="#informal"><img src="img/dot-1.png" />Informal Neighborhoods</a><li>
+        <li><a href="#youtube"><img src="img/dot-1.png" />Spatializing YouTube</a><li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- main -->
+  <div class="col-md-6 body-text">
+     <h5 id="data">The Data Layers</h5>
+        The interactive maps that form a core component of the Conflict Urbanism: Aleppo project bring together diverse data sets -- high-resolution satellite images, neighborhood boundaries, locations of damaged buildings identified by the UN, geolocated youtube videos -- that each present unique representations of the city of Aleppo. Using the logic of a typical geographic information system (GIS) map, the Conflict Urbanism: Aleppo project overlaps these layers, accruing two kinds of evidence: evidence about the physical destruction of the city over the last five year and evidence about how urban warfare is tracked and monitored from a distance. <br/><br/>The following sections describe the data we have used in our project, the ways each layer obscures as much as it reveals, and how we have used each layer to analyze urban damage in Aleppo.<br/><br/>
+      
+    <h5 id="satellite">The High Resolution Satellite View</h5><br/>
+        Although we tend to take it for granted today, the high-resolution satellite technology and imagery that we make use of here was only declassified and made generally available a decade and a half ago. Although these satellites orbit the globe regularly, their sensors need to be tasked, such that image-data about a particular point on the globe can be captured. Once the image has been retrieved and delivered to its first user, it becomes available for purchase by others as well.<br/><br/>Our work intentionally interrogates the potential use of these ubiquitous satellite images. Although it may seem unusual to use a formerly-military technology to investigate the effects of armed conflict, we are interested in exploring what it means to use these techniques for very different ends. <div class="footnote footnote-1">1</div> <br/><br/> What kinds of knowledge about cities and regions in conflict can be gathered by looking carefully at date-and-time-stamped high resolution satellite imagery? How are these images used by humanitarian organizations and the United Nations to study conflict zones? What kinds of urban scale phenomena are invisible on satellite images? <br/><br/>Our platform customizes an open-source Google-Earth-like interface, Mapbox, to display views of Aleppo. We have used three high-resolution satellite images from different points in the conflict – May 1, 2012, August 10, 2014 and September 3, 2015, and March 23, 2016.<br/><br/>With them urban damage in Aleppo becomes visible over time at 50cm per pixel resolution, the highest resolution available to civilian users until very recently. These images serve as a base map and a point of reference for the data layers on the platform.<br/><br/>
+
+    <h5 id="neighborhood">Neighborhoods of Aleppo </h5><br/>
+        We have created a map of the neighborhoods of Aleppo, which serves as a key navigational tool on the platform. We based our listing of neighborhoods on one developed by the UN Habitat program in 2013, and then used Wikimapia,<div class="footnote footnote-2">2</div> Google Maps, and UNOSAT for additional verification and to disambiguate neighborhood boundaries and common names. <br/><br/>The ability to navigate the city by neighborhood allows researchers to contextualize damage in the urban fabric of Aleppo, and to correlate specific events in the conflict with socio-demographic information about the city from other sources, as well as with information from social media and elsewhere.<br/></br>
+
+    <h5 id="osm">Open Street Map</h5><br/>
+       Open Street Map is web-based platform, through which volunteers from across the globe have produced a digital, crowd sourced world map, distributed under an open source license. Although many parts of the world are well mapped down to the scale of individual buildings; significant cities, regions and countries are not yet fully mapped. Parts of Aleppo are among these unmapped, or under-mapped, areas. An advantage of Open Street Map, is that a map can be presented in many styles to emphasize different attributes of a place: for Aleppo we have adapted a figure ground map-type, based on a style developed by Stamen Design, to emphasize where mapped buildings and roads appear as figures against the ground of urban space. This makes especially clear which areas of the city have been more comprehensively mapped versus those which have not. The building footprints and small tributary roads that are clearly visible on satellite imagery are still missing from the map in the eastern and southern areas of the city. When aligned with other data layers on our platform a pattern emerges to show that the geographies of the unmapped areas of Aleppo align with the areas of the city that have seen the most damage during the war. We are doing further research to uncover the demographic, political and environment logic of this hypothesis, neighborhood by neighborhood.</br></br>
+
+    <h5 id="unosat">UNITAR - UNOSAT Urban Damage</h5><br/>
+        We have visualized the latest release of their data, which documents all damage recorded on satellite images from November 21, 2010, September 23, 2013, May 23, 2014, April 26, 2015, and May 1, 2015. UNOSAT has recorded a total of 14,034 damaged structures over this time period, including 2,878 that were fully destroyed.<div class="footnote footnote-3">3</div> UNOSAT is expected to release a new damage assessment sometime in September 2016.<br/><br/>The UN uses this information to monitor the state of conflict, in order to facilitate humanitarian operations, to assess compliance with Security Council resolutions, and to document potential violations of international humanitarian law and the Geneva Conventions.   Users of this website can use UNOSAT data as a prompt to study the history of a particular destroyed building, the demographics and urbanization patters of particular neighborhoods in Aleppo, or road access and blockages to the city.<br/><br/> UNOSAT's dataset is open to all and has been released in multiple formats. The visualizations we have produced here allow users to examine Aleppo's urban fabric down to the scale of individual buildings and study the effects of the conflict over an extended period of time.<br/><br/>
+
+    <h5 id="informal">Informal Neighborhoods</h5><br/>
+       This layer was digitized by CSR researchers from a 2009 report entitled “Informal Settlements in Aleppo” that formed one component of the larger “Aleppo City Development Strategy”. This research and master planning project was led by GIZ Deutsche Gesellschaft für Internationale Zusammenarbeit, or German Corporation for International Cooperation) and commissioned by the Syrian government.<div class="footnote footnote-4">4</div> There is a great deal to be investigated in these reports, beginning with the reasons for their creation: What was the political rationale for designating particular areas of Aleppo as ‘informal’? What are the criteria that were used to determine which areas are considered ‘informal’? <br/><br/> Investigating these reports, the data resulted from them, and the motivations behind their creation is urgently important, because these documents will likely form the basis for urban policies and development when Aleppo is eventually rebuilt.<br/><br/>Here users can compare GIZ’s map of ‘informal’ neighborhoods to high resolution satellite images, as well as patterns of damage recorded by UNOSAT.<br/><br/>
+
+    <h5 id="youtube">Spatializing YouTube </h5><br/>
+        YouTube has emerged a key source of information about the conditions of the war in Syria over the course of the conflict -- indeed the conflict has been termed the ‘YouTube War’<div class="footnote footnote-5">5</div>. These videos, often filmed by non-expert civilians have provided on the ground views from a distance. Many YouTube channels have emerged that have consistently created and uploaded films for the duration of the war, some have posted between one and four thousand videos over the course of the war. Several of these channels have been repeatedly cited by international news media and by human rights organizations, and appear again and again as the key source of evidence of both heinous events and daily life in Syria.<br/><br>YouTube’s central role in the information landscape of the war raises a number of questions: how can human rights organizations and journalists verify the content of these sources? What are the biases of the groups organizing these channels? What patterns emerge in the locations covered by the local journalists and civilians? <br/><br>The first step in evaluating these questions is to examine the archive of war that has been published through YouTube. We have exploited the naming conventions used by these prominent channels in order to create a map that geolocates videos to the neighborhood that they depict and allows users to search videos by date. Though the videos depict actions in space, they are not tagged with any geographical information about where they have occurred<div class='footnote footnote-6'>6</div>We have created a spatial dataset through YouTube.
+        <br/><br/>  
+        Project Team: <br/><br/>Laura Kurgan, Madeeha Merchant, Dare Brawley, Grga Basic<br/><br/><br/>
+        <a class="btn btn-default btn-block c4sr-button c4sr-big-button" href="http://c4sr.columbia.edu/conflict-urbanism-aleppo/#project">Return to Case Studies</a><br/><br/>
+</div>
+
+
+<div class="col-md-3">
+  <div class="footnotes">
+    <div class="footnote-ref footnote-ref-1-b"><sup>1</sup> Laura Kurgan. “Introduction” and “Kosovo 1999: SPOT 083-264” in <a href= "http://www.zonebooks.org/titles/KURG_CLO.html"> Close Up at a Distance: Mapping, Technology and Politics</a> 7-36, 113-128. Brooklyn, NY: Zone Books, 2013.</div>
+
+    <div class="footnote-ref footnote-ref-2-b"><sup>2</sup> Aleppo, Syria.<a href= "http://wikimapia.org/#lang=en&lat=36.206607&lon=37.159882&z=10&m=b&search=aleppo"> Wikimapia.</a> </div>
+
+    <div class="footnote-ref footnote-ref-3-b"><sup>3</sup> UNOSAT,  <a href= "http://www.unitar.org/unosat/node/44/2238?utm_source=unosat-unitar&utm_medium=rss&utm_campaign=maps"> “Damage Assessment of Aleppo, Aleppo Governorate, Syria”</a> </div>
+
+    <div class="footnote-ref footnote-ref-4-b"><sup>4</sup><a href= "http://c4sr.columbia.edu/conflict-urbanism-aleppo/seminar/Case-Studies/Informal-Settlements/Informal-Settlements-Schreiner.html"> This project</a>, developed during the Spring 2016 Conflict Urbanism: Aleppo seminar examines these reports and planning documents in detail.</div>
+    
+    <div class="footnote-ref footnote-ref-5-b"><sup>5</sup> Melek Kaylan. "Syria's War Viewed Almost in Real Time"<a href= "http://www.wsj.com/articles/SB10001424127887324492604579083112566791956">The Wall Street Journal. September 27, 2013. </a> 2015. </div>
+
+    <div class="footnote-ref footnote-ref-6-b"><sup>6</sup> Explore the <a href= "http://c4sr.columbia.edu/conflict-urbanism-aleppo/spatializing-youtube/">interactive map</a> of spatialized YouTube videos we have created through this project </div>
+
+  </div>
+</div>
+
+
+</div>
+<!-- end row -->        
+
+  <div class="row red bottom-line">
+    <div class="col-sm-12">
+      <h5><center> Center for Spatial Research, Columbia University</center></h5>
+    </div>
+  </div>
+
+</div>
+
+<!-- TODO optimize this -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+
+<!-- TODO optimize, minify inline -->
+<script>
+$(document).ready(function() {
+
+  // bootstrap affix menu
+  $('#nav').affix({
+    offset: {
+      top: $('#nav').offset().top
+    }
+  });
+
+  // footnote logic
+  $('.footnote').each(function() {
+
+    /*
+    var f = $(this).attr('class').split(" ")[1];
+    var num = f.split("-")[1];
+    console.log(num);
+    var el = $('.' + f);
+
+    //var top = $('.' + f).position().top - 10;
+    
+    console.log(el);
+    /*
+    var num_c = num - 1;
+    var offset = num_c * 88;
+    var top_n = top - offset;
+    
+    // align footnote to position
+    $('.footnote-ref-' + num).css({
+      top: top_n
+    });
+    var final_p = $('.footnote-ref-' + num).position().top;
+    console.log(final_p);
+
+    */
+
+  });
+
+
+  // if window small then
+  if ($("ul.c4sr-nav").css("display") == "none" ){
+        $('.footnote-ref').each(function() {
+          $(this).css({
+            'top': 0,
+            'margin-bottom': '10px'
+          });
+        });
+  }
+
+
+});
+</script>
+</body>
+</html>

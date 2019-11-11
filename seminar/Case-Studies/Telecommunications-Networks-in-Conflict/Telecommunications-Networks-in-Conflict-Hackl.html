@@ -1,0 +1,209 @@
+<!-- Conflict Urbanism: Aleppo
+     Center for Spatial Research
+     Madeeha Merchant (mym2107@columbia.edu)
+
+================================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title> Conflict Urbanism: Aleppo</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- optimize for search ... student name ? -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- boostrap - TODO: use local for performance -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/c28915cb-7a1f-477c-9084-e9e755ede452.css"/>
+
+  <!-- TODO - optimize and consolidate files -->
+  <link href='css/conflict_main.css' rel='stylesheet' />
+  <link href='css/conflict_course.css' rel='stylesheet' />
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
+<body>
+  <div class="container main">
+    <div class="row top-row">
+      <div class="col-md-12">
+        <h5><a href="../../index.html">Conflict Urbanism Aleppo Seminar</a></h5>
+        <h5>Case Study | Telecommunications Networks in Conflict</h5>
+        <div class="img-padding">
+          <img src="img/Header_image_5.png" class="img-responsive" />
+        </div>
+      </div>
+    </div>
+<div class="row">
+  <!-- menu -->
+  <div class="col-md-3 scrollspy">
+    <div id="sticky-menu ">
+      <ul id="nav" class="nav c4sr-nav" data-spy="affix">
+        <br/>
+        <li><a href="#Text1">• Communications Infrastructure</a></li>
+        <li><a href="#Text2">• Mapping Communication<br/>&ensp;&thinsp;Infrastructure</a></li>
+        <li><a href="#Text3">• Alternative Means of<br/>&ensp;&thinsp;Communication: Broadcasting</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- main -->
+<div class="col-md-6 body-text">
+<br/>
+<h5 id="Text1">Communications Infrastructure</h5>
+
+<div class="paragraph">Syria's telecommunication network plays a key role in the ongoing conflict, as essential communication and citizen journalism would not be possible without access to the Internet - particularly via mobile phone. Power outages, destroyed infrastructure and deliberate shutdowns have disconnected around two thirds of the country from Syrian Internet providers. In the context of this destruction, Internet access has become decentralized and Syrian's make use of microwave links from Turkish cities or satellite connections.<div class="footnote footnote-01">1</div> Typically, telecommunication infrastructure is implemented and administered by a government entity or public company. In Syria, the government-owned Syrian Telecom Establishment (STE) exclusively provides infrastructure for all kinds of telecommunication.<div class="footnote footnote-02">2</div> Syria's mobile telecommunication market is split between two companies, MTN and Syriatel, the latter run by Rami Makhlouf, arguably the most powerful economic figure in Syria and a first cousin of Bashar al-Assad.<div class="footnote footnote-03">3</div> As Keller Easterling points out, “contemporary infrastructure space is the secret weapon of the most powerful people in the world precisely because it orchestrates activities that can remain unstated but are nevertheless consequential.” She continues to argue, “some of the most radical changes in the globalizing world are being written, not in the language of diplomacy, but in these spatial, infrastructural technologies.”<div class="footnote footnote-04">4</div> Accordingly, mapping mobile phone infrastructure is mapping zones of control.</div><br/><br/>
+
+<h5 id="Text2">Mapping Communication Infrastructure</h5>
+
+<div class="paragraph">Due to the fact that cellular tranceiver station towers are hard to recognize when analyzing satellite imagery, we used a different kind of remote surveying. Berlin based Open Cell ID<div class="footnote footnote-05">5</div> is a web platform that provides crowd-sourced data on the positions of GSM base transeiver stations - also referred to as cells - free of charge. The dataset returns the mobile country code (MCC), a specific number for each provider, latitude, longitude as well as the date when the cell was first detected by a user. At the time of writing this text, over 6500 stations are mapped all over Syria.</div><br/>
+
+<div class="paragraph">One essential feature of cell phone communication is that the phone must be localized within the network. As soon as the device is within the range of three cells, its position can be pinpointed. Thus the user is always within a controlled space. The project utilises a cell phone app which performs this localization in reverse, and saves and distributes the information collected when logging into a new cell. In addition, it is important to stress that all points listed in the most recent data set are active and operational cells.<br/><br/>
+
+<div class="paragraph">This animation shows the rise in cells detected by users of the app from 2008 to 2016:</div><br/>
+<img src="img/communication/aleppo_timeline.gif" class="img-responsive"/><br/><br/>
+
+<div class="paragraph">Obviously, there were more than 2 operational cellphone towers in Syria in 2008, so it is important to address the limitations of the data set. Firstly, as mentioned earlier, the data is only gathered by users who have an application installed on their phone and who run the app, allowing it to upload data, so, the rise in detected cells does not necessarily mean that more cells were built. It might as well stem from more local or even from foreign users who entered the country and who ran the application. Secondly, due to the nature of locating the closest cell even while moving, some of the readings are not precise and therefore there are frequent overlays of captured data. In other words, the same station may be captured multiple times with minor variations or even round-off errors in latitude and longitude:</div><br/>
+
+<div id='map' style='width: 100%; height: 300px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoia29ycmVrdHVyIiwiYSI6ImNpaGU4ajRvazAzbm91Mmo3b3Y0ZnltZDgifQ.QPt7f2PV47mFFo-SExqx4A';
+  var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/korrektur/cintt89jl000ta5nhbzehbj4j'
+    });
+
+map.addControl(new mapboxgl.Navigation({position: 'top-left'}));
+map.scrollZoom.disable();
+
+</script><br/><br/>
+
+<div class="paragraph">Zooming in on Aleppo, a clear pattern emerges: Syriatel operates almost exclusively in neighborhoods that are government controlled, whereas MTN covers the rebel held areas of the city:</div><br/>
+
+<img src="img/communication/aleppo_cells_damage.png" class="img-responsive"/><br/><br/>
+
+<div class="paragraph">Moreover, it is evident that cellphone infrastructure only exists in the formal neighborhoods of Aleppo. Again, there are many possible explanations for that: One explanation could be that in the regime controlled areas of Aleppo more people have Syriatel contracts,<div class="footnote footnote-06">6</div> or that no MTN SIM cards are sold, and therefore only the Syriatel tranceiver stations are picked up. Another obvious fact is that cellphone infrastructure is not being rebuilt during conflict. The map shows that, when displaying UNOSAT data on urban damage, no cellphone towers were recently detected in neighborhoods most severely affected by airstrikes, bombings and shelling.</div><br/><br/>
+
+<h5 id="Text3">Alternative Means of Communication: Broadcasting</h5><br/>
+
+<div class="paragraph">With both media as well as telecommunications highly controlled, new forms of alternative media have emerged in Syria. As seen in previous conflict zones,<div class="footnote footnote-07">7</div> radio, in times of conflict, becomes the main mass medium, since TV broadcasting infrastructure is inoperative in large parts of the country.  Needless to say, there are significant differences between broadcasting and telecommunication, since broadcasting is in principle one-sided as opposed to peer-to-peer networked telecommunication. However, due to the fact that radio does not depend on a wide array of cell towers and – even more importantly – considering the fact that radio is actually wireless as opposed to so-called wireless communication where only the last segment of the system is actually wireless, it has become an essential form of communication. Small, wireless and even battery powered devices are sufficient to receive radio signal. Furthermore, the receiver or user cannot be located.</div><br/><br/>
+
+<iframe src="http://www.npr.org/player/embed/310300819/310300820" width="100%" height="200" frameborder="0" scrolling="no" title="NPR embedded audio player"></iframe><br/><font size="2" >Radio feature, published by NPR (2016) Transcript of the interview is accessible.</font><br><br/>
+
+<div class="paragraph">Although it took a while to establish them, given that the broadcasting studio depends on more stable working conditions, technical staff as well as specific equipment, as Omar Alassad asserts,<div class="footnote footnote-08">8</div> there are now multiple radio stations broadcasting for the Syrian people.<div class="footnote footnote-09">9</div> Many of these radio stations, such as <a href='http://www.radioalkul.com/'><u>Al-Kul</u></a> or <a href='https://www.facebook.com/RadioHaraFm/'><u>Hara</u></a>, don't operate out of Syria but have set up their studios just over the border in Turkey or even as far as France. The signal is transferred via satellite and then multiplied via small, mobile pocket transmitters that convert the signal and pass it on within Syria. One of the heavily publicized projects is called <a href='http://www.pocket-fm.com'><u>Pocket FM</u></a>. It was developed by an NGO called <a href='http://www.mict-international.org/'><u>MiCT</u></a> – Media in Cooperation and Transition – which has been active in Syria since 2013.</div><br/><br/>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ro4UDhWUneI" frameborder="0" allowfullscreen></iframe>
+
+<div class="paragraph">In a statement about the importance of local radio, the NGO emphasizes that radio reception is mobile and receivers are relatively affordable, thus making it a source of information that can in principle be listened to everywhere, and a means of communication that has the potential to become a platform for public dialogue and the development of a sense of citizenship. Oftentimes, radio is received collectively, in groups or listening clubs, so that there is always a possibility of stimulating a debate.<div class="footnote footnote-10">10</div> The small pocket transmitter can be either solar powered, plugged into a normal power outlet or even a car battery and fits a backpack, so that it can be transported very easily. Its antenna provides a range of about 6km, which means that the whole city of Aleppo could be covered by only one unit.</div><br/><br/>
+
+<img src="img/communication/range.png" class="img-responsive"/><br/><br/>
+
+<div class="paragraph">In summary, based on the crowd sourced data set, it is not possible to definitely claim that telecommunication infrastructure was targeted specifically. At the same time, it is impossible to rule that out. It can be argued, regardless, that the control mechanisms that were in place before most of the destruction happened had a much bigger influence on blocking access to telecommunication infrastructure for particular groups.</div><br/><br/>
+
+<hr>
+
+<p>Produced by <b>Joachim Hackl</b>, for the Conflict Urbanism: Aleppo seminar at Columbia University during Spring 2016. See all student work
+
+<a href="file:///Users/sidlws3/Google%20Drive/Conflict%20Urbanism%20Aleppo%20Shared/Seminar/index.html" target="_top" ><u>here</u></a>.</p>
+
+
+
+<br/><br/><br/><br/>
+</div>
+</div>
+
+
+<!-- footnotes -->
+<div class="col-md-3">
+  <div class="footnotes">
+   <br/>
+    <div class="footnote-ref footnote-ref-1-d"><sup>1</sup> The <a href= "https://freedomhouse.org/report/freedom-net/2015/syria"> “Freedom House”</a> issues annual reports on restrictions of access to the internet. A link to the most recent report is available here: <a href='img/communication/FOTN 2015_Syria.pdf'><u>Freedom on the Net 2015</u></a></div>
+
+    <div class="footnote-ref footnote-ref-2-d"><sup>2</sup> see <a href= "http://www.budde.com.au/Research/Syria-Telecoms-Mobile-and-Broadband.html"> "Budde.com.au"</a> 2015 </div>
+
+    <div class="footnote-ref footnote-ref-3-d"><sup>3</sup> see <a href= "http://www.bbc.com/news/world-middle-east-13216195"> “BBC”</a> July 30, 2012 </div>
+
+    <div class="footnote-ref footnote-ref-4-d"><sup>4</sup> Keller Easterling, Extrastatecraft: The Power of Infrastructure Space (London and New York: Verso, 2014), 15</a></div>
+
+    <div class="footnote-ref footnote-ref-5-d"><sup>5</sup>UNITAR.<a href= "https://www.unitar.org/unosat/four-years-human-suffering-–-syria-conflict-observed-through-satellite-imagery">“Four Year of Human Suffering -- the Syria Conflict as Observed through Satellite Imagery.” </a>March 2015</div>
+
+    <div class="footnote-ref footnote-ref-6-d"><sup>6</sup> As of 04/2016 Syriatel offers:  <a href= "http://www.syriatel.sy/offers/military-bundles"> “military bundles”</a></div>
+
+    <div class="footnote-ref footnote-ref-7-d"><sup>7</sup> Among others in Iraq, as described in: Jalal Toufic, Over-Sensitivity (Los Angeles: Sun&Moon: 1996), 54</div>
+
+    <div class="footnote-ref footnote-ref-8-d"><sup>8</sup> Omar Alassad, “Popular Collision: New Forms of Alternative Media in Syria During the Revolution”, trans. Ghias Aljundi, in Malu Halasa, Zaher Omareen and Nawara Mahfoud (Eds.) Syria Speaks, Art and Culture From the Frontline (London: Saqi, 2014), 112-117</div>
+
+    </br><div class="footnote-ref footnote-ref-9-d"><sup>9</sup> for more information see <a href= "http://www.syrnet.org/en/content/syria-radio-network"> "www.syrnet.org"</div>
+
+  </div>
+</div>
+
+
+</div>
+<!-- end row -->
+
+  <div class="row red bottom-line">
+    <div class="col-sm-12">
+      <h5><center> Center for Spatial Research, Columbia University</center></h5>
+    </div>
+  </div>
+
+</div>
+
+<!-- TODO optimize this -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+
+<!-- TODO optimize, minify inline -->
+<script>
+$(document).ready(function() {
+
+  // bootstrap affix menu
+  $('#nav').affix({
+    offset: {
+      top: $('#nav').offset().top
+    }
+  });
+
+  // footnote logic
+  $('.footnote').each(function() {
+    /*
+    var f = $(this).attr('class').split(" ")[1];
+    var num = f.split("-")[1];
+    var top = $('.' + f).position().top - 10;
+
+    var num_c = num - 1;
+    var offset = num_c * 88;
+    var top_n = top - offset;
+
+    // align footnote to position
+    $('.footnote-ref-' + num).css({
+      top: top_n
+    });
+    var final_p = $('.footnote-ref-' + num).position().top;
+    */
+
+
+  });
+
+  // if window small then
+  if ($("ul.c4sr-nav").css("display") == "none" ){
+        $('.footnote-ref').each(function() {
+          $(this).css({
+            'top': 0,
+            'margin-bottom': '10px'
+          });
+        });
+  }
+
+
+});
+</script>
+</body>
+</html>
