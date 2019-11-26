@@ -1,7 +1,7 @@
-    body 
+    body
     {
         background-color: white;
-        font-family: 'UniversNextW01-Regular'; 
+        font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; 
         font-size: 16px;
         color: #000;
         line-height: 1em;
@@ -72,7 +72,7 @@
     .row.top-row {
          border-bottom: 2px solid black;
     }
- 
+
     /* Heading: Center for Spatial Research, Columbia University */
      .bottom-line h5 {
         margin-bottom: 0px;
@@ -80,7 +80,7 @@
         margin-top: 0px;
         color: #000;
     }
-    
+
     .container2:after {
         font-family: FontAwesome;
         content: "\f111";
@@ -103,7 +103,7 @@
         text-align: left;
     }
 
-    /* Header: Methodology */ 
+    /* Header: Methodology */
     .light-grey {
         padding: 12px 0;
         color: #000;
@@ -111,15 +111,15 @@
         position: relative;
         text-align: justify;
         font-size: 12px;
-    }    
+    }
 
     /* Neighoborhood List: Pointer */
     .data-rows .row {
         cursor: pointer;
     }
-    
+
     .data-rows .row :hover {
-        background-color: #E2E2E5; 
+        background-color: #E2E2E5;
         /* background-color: #f0f0f2; */
     }
 
@@ -140,10 +140,10 @@
     .very-light-grey {
         color: #000;
         /*display: block;*/
-        height: 105%; 
+        height: 105%;
         text-align: justify;
     }
-    
+
     .mid-column {}
 
     .mid-column .row {
@@ -159,7 +159,7 @@
 
     .first-column,
     .second-column {}
-    
+
     .first-column,
     .third-column {
         height: calc(100% - 443px);
@@ -188,10 +188,10 @@
     /*Methodology Section */
     .second-column {
         height: 443px;
-        border-top: 1px solid black; 
+        border-top: 1px solid black;
         overflow-x: hidden;
     }
-    
+
     .left-col .row,
     .right-col .row {
         display: block;
@@ -203,7 +203,7 @@
         padding-top: 15px;
         padding-bottom: 15px;
     }
-    
+
     .left-col.col-sm-3,
     .right-col.col-sm-3 {
         height: 100%;
@@ -214,7 +214,7 @@
     .right-col.col-sm-3 {
         float: right;
     }
-    
+
     .light-grey,
     .dark-grey {
         display: table;
@@ -233,7 +233,7 @@
     }
 
     .first-column h5,
-    .first-column h4 {     
+    .first-column h4 {
     font-size: 13px;
     font-family: 'Univers Next W01 Bold';
     margin-left: 15px;
@@ -245,14 +245,14 @@
         margin-top: 0px;
         font-family: 'Univers Next W01 Bold';
     }
-    
+
     /* -------------------- BLOCKS: VISUALIZE ------------------------ */
 
     .mid-column.col-sm-8 {
         height: 100%;
-        
+
     }
-    
+
     .upper-col {
         height:100%;
         overflow-x: hidden;
@@ -260,18 +260,18 @@
         padding-bottom: 15px;
         padding-top: 15px;
     }
-    
+
     .t-1 {
         display: block;
         height: 100%;
         font-size: 10px;
     }
-    
+
     .t-title {
         font-family: 'Univers Next W01 Bold';
         height: 30px;
     }
-    
+
     .t-title h5 {
         margin-bottom: 0;
         margin-top: 0;
@@ -286,7 +286,7 @@
             background: rgba(0, 0, 0, 0.55);
             padding: 5px;
     }
-    
+
     .div-icon > div > div{
             border-radius: 50%;
             width: 30px;
@@ -295,7 +295,7 @@
     }
 
 /* -------------------- MAPBOX  STYLING ----------------------- */
-    
+
     .leaflet-bar a,
     .leaflet-control-layers-toggle,
     .leaflet-popup-close-button,
@@ -313,7 +313,7 @@
         font-size: 75%;
         font-family: 'UniversNextW01-Regular';
     }
-    
+
     input[type=checkbox],
     input[type=radio] {
           margin-right: 5px;
@@ -344,11 +344,11 @@
         width: 100%;
     }
 
-/* -------------------- SEARCH BAR ---------------------- */   
+/* -------------------- SEARCH BAR ---------------------- */
 
     .search-box{
         width: 100%;
-        color: #000;   
+        color: #000;
     }
 
     .search-box input{
@@ -360,12 +360,12 @@
         border-bottom: 1px solid black;
         margin-bottom: 10px;
     }
-        
-/* -------------------- MEDIA ADJUSTMENT ---------------------- */   
 
-    
+/* -------------------- MEDIA ADJUSTMENT ---------------------- */
+
+
     @media (min-width: 1280px) {
-       
+
         .col-first.col-sm-3 {
             width: 200px;
         }
@@ -384,7 +384,7 @@
             width: auto;
         }
     }
-    
+
     @media (min-width: 768px) and (max-width: 1279px) {
         .col-first.col-sm-3 {
             width: 200px;
@@ -404,12 +404,10 @@
             width: auto;
         }
     }
-    
+
     @media (max-width: 767px) {
         .main {
             margin: 0px 15px;
             height: 100%;
         }
     }
-
-
