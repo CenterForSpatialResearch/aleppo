@@ -1,7 +1,7 @@
     body
     {
         background-color: white;
-        font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; 
+        font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif;
         font-size: 16px;
         color: #000;
         line-height: 1em;
@@ -54,7 +54,7 @@
         margin-bottom: 0px;
         margin-top: 0px;
         font-size: 18px;
-        font-family: 'Univers Next W01 Bold';
+        font-family: 'Univers Next W01 Bold', Helvetica, Arial, sans-serif;
     }
 
     /* Heading: Aleppo  */
@@ -64,7 +64,7 @@
         padding-bottom: 0px;
         padding-top: 0px;
         margin-top: 0px;
-        font-family: 'Univers Next W01 Bold';
+        font-family: 'Univers Next W01 Bold', Helvetica, Arial, sans-serif;
         text-indent: 10px;
     }
 
@@ -235,7 +235,7 @@
     .first-column h5,
     .first-column h4 {
     font-size: 13px;
-    font-family: 'Univers Next W01 Bold';
+    font-family: 'Univers Next W01 Bold', Helvetica, Arial, sans-serif;
     margin-left: 15px;
     }
 
@@ -243,7 +243,7 @@
     .second-column h4 {
         margin-bottom: 0px;
         margin-top: 0px;
-        font-family: 'Univers Next W01 Bold';
+        font-family: 'Univers Next W01 Bold', Helvetica, Arial, sans-serif;
     }
 
     /* -------------------- BLOCKS: VISUALIZE ------------------------ */
@@ -268,7 +268,7 @@
     }
 
     .t-title {
-        font-family: 'Univers Next W01 Bold';
+        font-family: 'Univers Next W01 Bold', Helvetica, Arial, sans-serif;
         height: 30px;
     }
 
@@ -311,7 +311,7 @@
 
     #layer-switcher {
         font-size: 75%;
-        font-family: 'UniversNextW01-Regular';
+        font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif;
     }
 
     input[type=checkbox],
@@ -336,7 +336,7 @@
     }
 
     #marker-list > div > div > span {
-        font-family:'Univers Next W01 Light';
+        font-family:'Univers Next W01 Light', Helvetica, Arial, sans-serif;
         font-size: 90%;
     }
 
