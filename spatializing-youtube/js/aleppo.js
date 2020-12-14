@@ -97,6 +97,8 @@ YoutubeMapbox.prototype.makeMap = function() {
     L.mapbox.accessToken = this.options.mapboxAccessToken;
 
     var map = L.mapbox.map(this.options.mapId, 'mapbox.streets')
+
+    // var map = L.mapbox.map(this.options.mapId, 'mapbox.streets')
       .setView(this.options.mapCenter, this.options.mapZoom);
     this.map = map;
     this.map.touchZoom.disable();
@@ -107,11 +109,14 @@ YoutubeMapbox.prototype.makeMap = function() {
     L.mapbox.styleLayer(this.options.mapboxStyle).addTo(this.map);
 
     this.neighborhoodsLayer = L.mapbox.featureLayer(this.options.mapboxMapId);
+    // this.neighborhoodsLayer = L.mapbox.featureLayer()
+    //   .loadURL('data/Neighborhoods_centroids.geojson');
 
     // On click, show the name of the neighborhood.
     this.neighborhoodsLayer.on('layeradd', function(e) {
-      var popupContent = '<strong>' + e.layer.feature.properties.title + '</strong>';
+      var popupContent = '<strong>' + e.layer.feature.properties.NAME + '</strong>' ;
       e.layer.bindPopup(popupContent);
+   
     }.bind(this));
 
     // Add the neighborhoods to the map. When ready, record the neighborhood records.
@@ -120,6 +125,7 @@ YoutubeMapbox.prototype.makeMap = function() {
         var neighborhood = new Neighborhood(layer.feature);
         var id = neighborhood.getId();
         this.neighborhoods[id] = neighborhood;
+        console.log(this.neighborhoods[id])
       }.bind(this));
       resolve();
     }.bind(this));
@@ -360,7 +366,7 @@ YoutubeMapbox.prototype.groupVideosByNeighborhood = function() {
     } // end loop
 
     this.neighborhoodMap = mapping;
-
+    // console.log(mapping)
     resolve();
   }.bind(this));
 };
@@ -377,12 +383,17 @@ YoutubeMapbox.prototype.placeVideosOnMap = function() {
     var header = $('#' + this.options.videosListId + ' .header');
     var total = 0;
 
+    console.log(this.neighborhoodMap[id])
+
     for (var id in this.neighborhoodMap) {
+      console.log(this.neighborhoodMap[id])
       var numVideos = this.neighborhoodMap[id].length;
       total += numVideos;
       var size = Math.min(80, numVideos / 3.0 + 20.0);
-
       var neighborhood = this.neighborhoods[id];
+      console.log(neighborhood)
+
+
       var location = neighborhood.getMarkerLocation();
       var sizeTier = neighborhood.getSizeTier(numVideos);
 
@@ -402,7 +413,7 @@ YoutubeMapbox.prototype.placeVideosOnMap = function() {
       this.markers.push(marker);
     } // end of neighborhoodMap loop
 
-    console.log("Placing", total, "videos");
+    console.log("Placing - ", total, "videos");
 
     resolve();
   }.bind(this));

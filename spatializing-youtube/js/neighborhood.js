@@ -2,18 +2,20 @@ function Neighborhood(feature) {
   this.feature = feature; // {properties:..., geometry:...}
   this.nameTable = null;
   this.geometry = null;
-
+  // console.log(feature)
   this.processFeatureData();
 }
 
 Neighborhood.prototype.processFeatureData = function() {
   // Find the center of the neighborhood outline.
   var neighborhoodCenter = Util.averageLatLng(this.feature.geometry.coordinates[0]);
+  // console.log(this.feature.NAME)
 
   this.geometry = {
     type: "Point",
     coordinates: [neighborhoodCenter.lng, neighborhoodCenter.lat]
   };
+  // console.log(this.geometry.coordinates)
 };
 
 Neighborhood.prototype.getArabicName = function() {
@@ -21,7 +23,7 @@ Neighborhood.prototype.getArabicName = function() {
 };
 
 Neighborhood.prototype.getEnglishName = function() {
-  return this.feature.properties.title; // NAME?
+  return this.feature.properties.NAME; // NAME?
 };
 
 Neighborhood.prototype.getId = function() {
@@ -36,7 +38,12 @@ Neighborhood.prototype.getNameTable = function() {
   return this.nameTable;
 };
 
-
+Neighborhood.prototype.get_x = function() {
+  return this.feature.xcoord;
+}
+Neighborhood.prototype.get_y = function() {
+  return this.feature.ycoord;
+}
 // Provide the number of videos the marker for this neighborhood should represent.
 //
 // If the number of videos in the neighborhood is greater than 0, then
@@ -112,3 +119,13 @@ Neighborhood.prototype.getMarkerLocation = function() {
     lat: this.geometry.coordinates[1],
   };
 };
+
+
+Neighborhood.prototype.getMarkerLocation_new = function() {
+  return {
+    lng: this.feature.properties.xcoord,
+    lat: this.feature.properties.ycoord,
+  };
+};
+
+

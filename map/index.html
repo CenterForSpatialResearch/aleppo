@@ -151,8 +151,8 @@
 
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
 
-    <script src="data/hrw.js"></script>
-    <script src="data/unosat1.js"></script>
+    <!-- <script src="data/hrw.js"></script>
+    <script src="data/unosat1.js"></script> -->
 
     <script type="text/javascript">
 
@@ -283,17 +283,36 @@
         /* Layer : NEIGHBORHOOD : featureLayer8
         ================================================== */
 
-	    var featureLayer = L.mapbox.featureLayer('sidl.mhk5gaj2')
-	        .on('click', function(e) {
-	            if (!markerPopup) {
-	                var content = '<b>' + e.layer.toGeoJSON().properties.NAME + '<br \/>' +
-	                    '' + e.layer.toGeoJSON().properties.NAME_A + '<\/b>';
-	                L.popup({}).setLatLng(e.layer.getBounds().getCenter()).setContent(content).openOn(map);
-	            }
-	        })
-	        .on('ready', function(e) {
-	            this.eachLayer(function(layer) {
+	    // var neighborhoodLayer = L.mapbox.featureLayer('sidl.mhk5gaj2')
+        var neighborhoodLayer = L.mapbox.featureLayer()
+            .loadURL('data/Neighborhoods.geojson')
+            // .addTo(map)
 
+            // .on('ready', function() {
+            //     console.log("neighborhood json");
+            //     console.log(e.layer.toGeoJSON().properties.NAME)
+            //         // if (!markerPopup) {
+            //             var content = '<b>' + e.layer.toGeoJSON().properties.NAME + '<br \/>' +
+            //                     '' + e.layer.toGeoJSON().properties.NAME_A + '<\/b>';
+            //                 L.popup({}).setLatLng(e.layer.getBounds().getCenter()).setContent(content).openOn(map);
+            //         // }
+            //         layer.bindPopup(content);
+               
+            // })
+
+            // .on('ready', function(layer){
+            //     neighborhoodLayer.eachLayer(function(layer){
+            //     var content = '<b>' + layer.toGeoJSON().properties.NAME + '<br \/>' +
+            //                     '' + layer.toGeoJSON().properties.NAME_A + '<\/b>';
+            //     layer.bindPopup(content);
+            //     console.log(layer.toGeoJSON().properties.NAME);
+            //     })
+            // });
+
+	        .on('ready', function(e) {
+                console.log("ready add to map fired")
+	            this.eachLayer(function(layer) {
+                    // console.log(layer.toGeoJSON().properties.NAME)
 	                var i = {
 	                    'name': layer.toGeoJSON().properties.NAME,
 	                    'description': layer.toGeoJSON().properties.description,
@@ -301,24 +320,16 @@
 	                    'graph': "graph2",
 	                    'layer': layer
 	                };
-	                rows.push(i);
-	            });
-
-                var neighborhoodData = {
-                        "Aleppo Citadel":[
-                            'X1'
-                        ],
-                        "Souq al-Madina":[
-                            'X2'
-                        ],
-                        "Sheikh Sa'eed":[
-                            'X3'
-                        ],
-                        "al-Muhafaza":[
-                            'Description'
-                        ]
-                };
-
+                    rows.push(i);
+                    
+                });
+                neighborhoodLayer.eachLayer(function(layer){
+                var content = '<b>' + layer.toGeoJSON().properties.NAME + '<br \/>' +
+                                '' + layer.toGeoJSON().properties.NAME_A + '<\/b>';
+                layer.bindPopup(content);
+                console.log(layer.toGeoJSON().properties.NAME);
+                })
+             
         /* Layer : Neighborhood Tabs Script
         ================================================== */
 
@@ -328,14 +339,17 @@
                     .append("div")
                     .attr("class", "row")
                     .on('click', function(d) {
+                        console.log("neighborhood menu clicked");
+                        console.log(d.layer.toGeoJSON().properties.NAME);
+                        console.log(d.layer.toGeoJSON().properties.NAME_A);
+                        // console.log(nd);
+                        // var nd = neighborhoodData[d.name] ? neighborhoodData[d.name] : [];
+                        // var desc = "<b>" + d.name + "<b><br>" + (typeof nd != 'ondefined') ? nd[1] : '';
+                        // d3.select('.description').html(desc);
 
-                        var nd = neighborhoodData[d.name] ? neighborhoodData[d.name] : [];
-                        var desc = "<b>" + d.name + "<b><br>" + (typeof nd != 'undefined') ? nd[1] : '';
-                        d3.select('.description').html(desc);
-
-                        d3.select(".row-text").on('click', function() {
-                            d3.select('.description').html((typeof nd != 'undefined') ? nd[1] : '');
-                        });
+                        // d3.select(".row-text").on('click', function() {
+                        //     d3.select('.description').html((typeof nd != 'undefined') ? nd[1] : '');
+                        // });
 
                         map.fitBounds(d.layer.getBounds());
                         var content = '<b>' + d.layer.toGeoJSON().properties.NAME + '<br \/>' +
@@ -349,6 +363,14 @@
 	                .text(function(d) {
 	                    return d.name;
 	                });
+                // neighborhoodLayer.on('click', function(d) {
+                //         console.log("neighborhood json clicked");
+                //         console.log(d.layer.toGeoJSON().properties.NAME)
+                //         var content = '<b>' + d.layer.toGeoJSON().properties.NAME + '<br \/>' +
+                //                 '' + d.layer.toGeoJSON().properties.NAME_A + '<\/b>';
+                //         L.popup({}).setLatLng(d.layer.getBounds().getCenter()).setContent(content).openOn(map);
+                //         // }
+                // });
 
 	        }).addTo(map);
 
@@ -447,17 +469,6 @@
         };
 
 
-        //  L.mapbox.featureLayer()
-        //     .loadURL('data/Cultural.geojson')
-        //     .on('ready', function(e) {
-
-        //     e.target.eachLayer(function(layer) {
-        //         layer.setIcon(myIcons0[layer.feature.properties.Typology]);
-        //         layer.bindPopup(layer.feature.properties.FACILITY_N);
-        //         groups0[layer.feature.properties.Typology].addLayer(layer);
-        //     });
-        // });
-
 
         L.mapbox.featureLayer()
             .loadURL('data/un2.geojson')
@@ -515,7 +526,7 @@
 
 
             //Neighborhoods layer
-            'Neighborhoods | <br> This this neighborhoods has been adapted from the one used by UN Habitat and Reach in 2013. The neighborhoods have been crossreferenced with Google Maps and Wikimapia to verify the UNOSAT dataset.<hr> Layer Credits: </br> Center for Spatial Research': featureLayer,
+            'Neighborhoods | <br> This this neighborhoods has been adapted from the one used by UN Habitat and Reach in 2013. The neighborhoods have been crossreferenced with Google Maps and Wikimapia to verify the UNOSAT dataset.<hr> Layer Credits: </br> Center for Spatial Research': neighborhoodLayer,
 
             //Cultural Sites : featureLayer7
            // 'Cultural Sites| <br> The Humanitarian Information Unit (HIU) at the U.S. Department of State has identified, 241 cultural sites. <hr> Legend: </br> Green: Civic </br> Blue: Residential </br> Purple: Educational </br> Dk. Green: Religious </br> Dk. Blue: Commercial <hr> Data Source: </br> 2015 HIU / US Dept of State': culturalLayer
