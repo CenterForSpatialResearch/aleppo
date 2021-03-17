@@ -96,10 +96,10 @@ YoutubeMapbox.prototype.makeMap = function() {
   return new Promise(function(resolve, reject) {
     L.mapbox.accessToken = this.options.mapboxAccessToken;
 
-    var map = L.mapbox.map(this.options.mapId, 'mapbox.streets')
+    var map = L.mapbox.map(this.options.mapId)
 
     // var map = L.mapbox.map(this.options.mapId, 'mapbox.streets')
-      .setView(this.options.mapCenter, this.options.mapZoom);
+      .setView(this .options.mapCenter, this.options.mapZoom);
     this.map = map;
     this.map.touchZoom.disable();
     this.map.doubleClickZoom.disable();
@@ -108,15 +108,17 @@ YoutubeMapbox.prototype.makeMap = function() {
 
     L.mapbox.styleLayer(this.options.mapboxStyle).addTo(this.map);
 
-    this.neighborhoodsLayer = L.mapbox.featureLayer(this.options.mapboxMapId);
-    // this.neighborhoodsLayer = L.mapbox.featureLayer()
-    //   .loadURL('data/Neighborhoods_centroids.geojson');
+    // this.neighborhoodsLayer = L.mapbox.featureLayer(this.options.mapboxMapId);
+    
+    this.neighborhoodsLayer = L.mapbox.featureLayer()
+      .loadURL('data/Neighborhoods_centroids.geojson');
 
     // On click, show the name of the neighborhood.
     this.neighborhoodsLayer.on('layeradd', function(e) {
-      var popupContent = '<strong>' + e.layer.feature.properties.NAME + '</strong>' ;
+      var popupContent = '<strong>' + e.layer.feature.properties.NAME + '<br>' + e.layer.feature.properties.NAME_A+ '</strong>' ;
       e.layer.bindPopup(popupContent);
-   
+      // console.log(this.neighborhoods[id]);
+
     }.bind(this));
 
     // Add the neighborhoods to the map. When ready, record the neighborhood records.
@@ -125,7 +127,7 @@ YoutubeMapbox.prototype.makeMap = function() {
         var neighborhood = new Neighborhood(layer.feature);
         var id = neighborhood.getId();
         this.neighborhoods[id] = neighborhood;
-        console.log(this.neighborhoods[id])
+        console.log(this.neighborhoods[id]);
       }.bind(this));
       resolve();
     }.bind(this));
@@ -366,11 +368,11 @@ YoutubeMapbox.prototype.groupVideosByNeighborhood = function() {
     } // end loop
 
     this.neighborhoodMap = mapping;
-    // console.log(mapping)
+    console.log(mapping)
     resolve();
   }.bind(this));
 };
-
+// console.log(neighborhoodMap[id])
 
 // Produce mapbox markers for each neighborhood's videos.
 YoutubeMapbox.prototype.placeVideosOnMap = function() {
@@ -394,7 +396,8 @@ YoutubeMapbox.prototype.placeVideosOnMap = function() {
       console.log(neighborhood)
 
 
-      var location = neighborhood.getMarkerLocation();
+      // var location = neighborhood.getMarkerLocation();
+      var location = neighborhood.getMarkerLocation_new();
       var sizeTier = neighborhood.getSizeTier(numVideos);
 
       // https://www.mapbox.com/mapbox.js/example/v1.0.0/divicon/

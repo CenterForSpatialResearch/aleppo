@@ -119,13 +119,15 @@ Neighborhood.prototype.getMarkerLocation = function() {
     lat: this.geometry.coordinates[1],
   };
 };
-
-
+debugger
 Neighborhood.prototype.getMarkerLocation_new = function() {
   return {
     lng: this.feature.properties.xcoord,
     lat: this.feature.properties.ycoord,
+    // console.log("getMarkerLocation_new"),
+    // console.log(this.getMarkerLocation_new),
   };
+  
 };
 
 
