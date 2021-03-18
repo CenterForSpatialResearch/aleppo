@@ -119,7 +119,7 @@ Neighborhood.prototype.getMarkerLocation = function() {
     lat: this.geometry.coordinates[1],
   };
 };
-debugger
+
 Neighborhood.prototype.getMarkerLocation_new = function() {
   return {
     lng: this.feature.properties.xcoord,
