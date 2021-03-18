@@ -385,11 +385,10 @@ YoutubeMapbox.prototype.placeVideosOnMap = function() {
     var header = $('#' + this.options.videosListId + ' .header');
     var total = 0;
 
-    console.log(this.neighborhoodMap[id])
-
+    
     for (var id in this.neighborhoodMap) {
-      console.log(this.neighborhoodMap[id])
-      var numVideos = this.neighborhoodMap[id].length;
+        console.log(id)
+        var numVideos = this.neighborhoodMap[id].length;
       total += numVideos;
       var size = Math.min(80, numVideos / 3.0 + 20.0);
       var neighborhood = this.neighborhoods[id];
@@ -398,7 +397,7 @@ YoutubeMapbox.prototype.placeVideosOnMap = function() {
 
       // var location = neighborhood.getMarkerLocation();
       var location = neighborhood.getMarkerLocation_new();
-      var sizeTier = neighborhood.getSizeTier(numVideos);
+      var sizeTier = 4//neighborhood.getSizeTier(numVideos);
 
       // https://www.mapbox.com/mapbox.js/example/v1.0.0/divicon/
       var icon = L.divIcon({
@@ -421,6 +420,7 @@ YoutubeMapbox.prototype.placeVideosOnMap = function() {
     resolve();
   }.bind(this));
 };
+
 
 
 YoutubeMapbox.prototype.removeAllMarkers = function() {

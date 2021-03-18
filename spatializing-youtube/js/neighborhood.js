@@ -27,7 +27,9 @@ Neighborhood.prototype.getEnglishName = function() {
 };
 
 Neighborhood.prototype.getId = function() {
-  return this.feature.id;
+    //console.log(temp[this.feature.properties.NAME])
+    return temp[this.feature.properties.NAME]
+  return this.feature.properties.Id;
 }
 
 Neighborhood.prototype.setNameTable = function(table) {
