@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <link href='slider.css' rel='stylesheet'/>
+    
+ </head>
+
+      <body>
+    <!-- <div class='container'>
+      <div class='img background-img'></div>
+      <div class='img foreground-img'></div>
+      <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
+      <div class='slider-button'></div>
+    </div> -->
+    <div id="juxtapose-wrapper" class="juxtapose" data-startingposition="35%" data-showlabels="false" data-showcredits="false" data-animate="false">
+        <div class="juxtapose">
+          <img src="img/Kurgan-Basic-Schreiner_01.jpg" />
+          <img src="img/Kurgan-Basic-Schreiner_01.jpg" />
+        </div>
+    </div>
+    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+ 
+  </body>
+
+  <script>
+  $("#slider").on("input change", (e)=>{
+    const sliderPos = e.target.value;
+    // Update the width of the foreground image
+    $('.foreground-img').css('width', `${sliderPos}%`)
+    // Update the position of the slider button
+    $('.slider-button').css('left', `calc(${sliderPos}% - 18px)`)
+  });
+  </script>
+
+</html>
